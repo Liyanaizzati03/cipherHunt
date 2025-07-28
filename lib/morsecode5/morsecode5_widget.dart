@@ -247,7 +247,7 @@ class _Morsecode5WidgetState extends State<Morsecode5Widget>
                                                   'assets/images/n2r5a_G.png',
                                                   fit: BoxFit.contain,
                                                 ),
-                                                allowRotation: false,
+                                                allowRotation: true,
                                                 tag: 'imageTag',
                                                 useHeroAnimation: true,
                                               ),
@@ -400,199 +400,54 @@ class _Morsecode5WidgetState extends State<Morsecode5Widget>
                         ),
                       ),
                     ),
-                    if (FFAppState().curentQuestion == 1)
-                      Align(
-                        alignment: AlignmentDirectional(0.0, 1.02),
-                        child: Padding(
-                          padding: EdgeInsets.all(10.0),
-                          child: ListView(
-                            padding: EdgeInsets.zero,
-                            shrinkWrap: true,
-                            scrollDirection: Axis.vertical,
-                            children: [
-                              Padding(
-                                padding: EdgeInsets.all(4.0),
-                                child: FFButtonWidget(
-                                  onPressed: () async {
-                                    logFirebaseEvent(
-                                        'MORSECODE5_PAGE_Answerbutton_ON_TAP');
-                                    logFirebaseEvent(
-                                        'Answerbutton_alert_dialog');
-                                    await showDialog(
-                                      context: context,
-                                      builder: (alertDialogContext) {
-                                        return AlertDialog(
-                                          title: Text('WRONG'),
-                                          content: Text('WRONG TRY AGAIN!!!'),
-                                          actions: [
-                                            TextButton(
-                                              onPressed: () => Navigator.pop(
-                                                  alertDialogContext),
-                                              child: Text('Ok'),
-                                            ),
-                                          ],
-                                        );
-                                      },
-                                    );
-                                  },
-                                  text: FFLocalizations.of(context).getText(
-                                    'pzyvlltq' /* THE VISITORS ARE HERE */,
-                                  ),
-                                  options: FFButtonOptions(
-                                    height: 40.0,
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        16.0, 0.0, 16.0, 0.0),
-                                    iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 0.0, 0.0),
-                                    color: FlutterFlowTheme.of(context).primary,
-                                    textStyle: FlutterFlowTheme.of(context)
-                                        .titleSmall
-                                        .override(
-                                          font: GoogleFonts.figtree(
-                                            fontWeight:
-                                                FlutterFlowTheme.of(context)
-                                                    .titleSmall
-                                                    .fontWeight,
-                                            fontStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .titleSmall
-                                                    .fontStyle,
+                    Align(
+                      alignment: AlignmentDirectional(0.0, 1.02),
+                      child: Padding(
+                        padding: EdgeInsets.all(10.0),
+                        child: ListView(
+                          padding: EdgeInsets.zero,
+                          reverse: true,
+                          shrinkWrap: true,
+                          scrollDirection: Axis.vertical,
+                          children: [
+                            Padding(
+                              padding: EdgeInsets.all(4.0),
+                              child: FFButtonWidget(
+                                onPressed: () async {
+                                  logFirebaseEvent(
+                                      'MORSECODE5_PAGE_Answerbutton_ON_TAP');
+                                  logFirebaseEvent('Answerbutton_alert_dialog');
+                                  await showDialog(
+                                    context: context,
+                                    builder: (alertDialogContext) {
+                                      return AlertDialog(
+                                        title: Text('WRONG'),
+                                        content: Text('WRONG TRY AGAIN!!!'),
+                                        actions: [
+                                          TextButton(
+                                            onPressed: () => Navigator.pop(
+                                                alertDialogContext),
+                                            child: Text('Ok'),
                                           ),
-                                          color: Colors.white,
-                                          letterSpacing: 0.0,
-                                          fontWeight:
-                                              FlutterFlowTheme.of(context)
-                                                  .titleSmall
-                                                  .fontWeight,
-                                          fontStyle:
-                                              FlutterFlowTheme.of(context)
-                                                  .titleSmall
-                                                  .fontStyle,
-                                        ),
-                                    elevation: 0.0,
-                                    borderRadius: BorderRadius.circular(24.0),
-                                  ),
-                                ),
-                              ),
-                              if ((FFAppState().correctOption == '1') &&
-                                  (FFAppState().curentQuestion == 1))
-                                Padding(
-                                  padding: EdgeInsets.all(4.0),
-                                  child: FFButtonWidget(
-                                    onPressed: () async {
-                                      logFirebaseEvent(
-                                          'MORSECODE5_PAGE_AnswerButton_ON_TAP');
-                                      logFirebaseEvent(
-                                          'AnswerButton_navigate_to');
-
-                                      context.pushNamed(
-                                        ConfettiWinnerPageMC5Widget.routeName,
-                                        queryParameters: {
-                                          'correctOption': serializeParam(
-                                            '',
-                                            ParamType.String,
-                                          ),
-                                        }.withoutNulls,
-                                        extra: <String, dynamic>{
-                                          kTransitionInfoKey: TransitionInfo(
-                                            hasTransition: true,
-                                            transitionType:
-                                                PageTransitionType.bottomToTop,
-                                          ),
-                                        },
+                                        ],
                                       );
                                     },
-                                    text: FFLocalizations.of(context).getText(
-                                      'dcysr28i' /* THE VISITOR IS HERE */,
-                                    ),
-                                    options: FFButtonOptions(
-                                      height: 40.0,
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          16.0, 0.0, 16.0, 0.0),
-                                      iconPadding:
-                                          EdgeInsetsDirectional.fromSTEB(
-                                              0.0, 0.0, 0.0, 0.0),
-                                      color:
-                                          FlutterFlowTheme.of(context).primary,
-                                      textStyle: FlutterFlowTheme.of(context)
-                                          .titleSmall
-                                          .override(
-                                            font: GoogleFonts.figtree(
-                                              fontWeight:
-                                                  FlutterFlowTheme.of(context)
-                                                      .titleSmall
-                                                      .fontWeight,
-                                              fontStyle:
-                                                  FlutterFlowTheme.of(context)
-                                                      .titleSmall
-                                                      .fontStyle,
-                                            ),
-                                            color: Colors.white,
-                                            letterSpacing: 0.0,
-                                            fontWeight:
-                                                FlutterFlowTheme.of(context)
-                                                    .titleSmall
-                                                    .fontWeight,
-                                            fontStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .titleSmall
-                                                    .fontStyle,
-                                          ),
-                                      elevation: 0.0,
-                                      borderRadius: BorderRadius.circular(24.0),
-                                    ),
-                                  ),
+                                  );
+                                },
+                                text: FFLocalizations.of(context).getText(
+                                  'pzyvlltq' /* THE VISITORS ARE HERE */,
                                 ),
-                              Padding(
-                                padding: EdgeInsets.all(6.0),
-                                child: FFButtonWidget(
-                                  onPressed: () async {
-                                    logFirebaseEvent(
-                                        'MORSECODE5_PAGE_AnswerButton_ON_TAP');
-                                    logFirebaseEvent(
-                                        'AnswerButton_alert_dialog');
-                                    await showDialog(
-                                      context: context,
-                                      builder: (alertDialogContext) {
-                                        return AlertDialog(
-                                          title: Text('WRONG'),
-                                          content: Text('WRONG TRY AGAIN!!!'),
-                                          actions: [
-                                            TextButton(
-                                              onPressed: () => Navigator.pop(
-                                                  alertDialogContext),
-                                              child: Text('Ok'),
-                                            ),
-                                          ],
-                                        );
-                                      },
-                                    );
-                                  },
-                                  text: FFLocalizations.of(context).getText(
-                                    'nffraosu' /* THE VISITOR IS NEAR */,
-                                  ),
-                                  options: FFButtonOptions(
-                                    height: 40.0,
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        16.0, 0.0, 16.0, 0.0),
-                                    iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 0.0, 0.0),
-                                    color: FlutterFlowTheme.of(context).primary,
-                                    textStyle: FlutterFlowTheme.of(context)
-                                        .titleSmall
-                                        .override(
-                                          font: GoogleFonts.figtree(
-                                            fontWeight:
-                                                FlutterFlowTheme.of(context)
-                                                    .titleSmall
-                                                    .fontWeight,
-                                            fontStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .titleSmall
-                                                    .fontStyle,
-                                          ),
-                                          color: Colors.white,
-                                          letterSpacing: 0.0,
+                                options: FFButtonOptions(
+                                  height: 40.0,
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      16.0, 0.0, 16.0, 0.0),
+                                  iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 0.0),
+                                  color: FlutterFlowTheme.of(context).primary,
+                                  textStyle: FlutterFlowTheme.of(context)
+                                      .titleSmall
+                                      .override(
+                                        font: GoogleFonts.figtree(
                                           fontWeight:
                                               FlutterFlowTheme.of(context)
                                                   .titleSmall
@@ -602,61 +457,59 @@ class _Morsecode5WidgetState extends State<Morsecode5Widget>
                                                   .titleSmall
                                                   .fontStyle,
                                         ),
-                                    elevation: 0.0,
-                                    borderRadius: BorderRadius.circular(24.0),
-                                  ),
+                                        color: Colors.white,
+                                        letterSpacing: 0.0,
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .titleSmall
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .titleSmall
+                                            .fontStyle,
+                                      ),
+                                  elevation: 0.0,
+                                  borderRadius: BorderRadius.circular(24.0),
                                 ),
                               ),
-                              Padding(
-                                padding: EdgeInsets.all(6.0),
-                                child: FFButtonWidget(
-                                  onPressed: () async {
-                                    logFirebaseEvent(
-                                        'MORSECODE5_PAGE_AnswerButton_ON_TAP');
-                                    logFirebaseEvent(
-                                        'AnswerButton_alert_dialog');
-                                    await showDialog(
-                                      context: context,
-                                      builder: (alertDialogContext) {
-                                        return AlertDialog(
-                                          title: Text('WRONG'),
-                                          content: Text('WRONG TRY AGAIN!!!'),
-                                          actions: [
-                                            TextButton(
-                                              onPressed: () => Navigator.pop(
-                                                  alertDialogContext),
-                                              child: Text('Ok'),
-                                            ),
-                                          ],
-                                        );
-                                      },
-                                    );
-                                  },
-                                  text: FFLocalizations.of(context).getText(
-                                    '5828nd2b' /* THAT VISITOR IS HERE */,
-                                  ),
-                                  options: FFButtonOptions(
-                                    height: 41.24,
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        16.0, 0.0, 16.0, 0.0),
-                                    iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 0.0, 0.0),
-                                    color: FlutterFlowTheme.of(context).primary,
-                                    textStyle: FlutterFlowTheme.of(context)
-                                        .titleSmall
-                                        .override(
-                                          font: GoogleFonts.figtree(
-                                            fontWeight:
-                                                FlutterFlowTheme.of(context)
-                                                    .titleSmall
-                                                    .fontWeight,
-                                            fontStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .titleSmall
-                                                    .fontStyle,
-                                          ),
-                                          color: Colors.white,
-                                          letterSpacing: 0.0,
+                            ),
+                            Padding(
+                              padding: EdgeInsets.all(4.0),
+                              child: FFButtonWidget(
+                                onPressed: () async {
+                                  logFirebaseEvent(
+                                      'MORSECODE5_PAGE_AnswerButton_ON_TAP');
+                                  logFirebaseEvent('AnswerButton_navigate_to');
+
+                                  context.pushNamed(
+                                    ConfettiWinnerPageMC5Widget.routeName,
+                                    queryParameters: {
+                                      'correctOption': serializeParam(
+                                        '',
+                                        ParamType.String,
+                                      ),
+                                    }.withoutNulls,
+                                    extra: <String, dynamic>{
+                                      kTransitionInfoKey: TransitionInfo(
+                                        hasTransition: true,
+                                        transitionType:
+                                            PageTransitionType.bottomToTop,
+                                      ),
+                                    },
+                                  );
+                                },
+                                text: FFLocalizations.of(context).getText(
+                                  'dcysr28i' /* THE VISITOR IS HERE */,
+                                ),
+                                options: FFButtonOptions(
+                                  height: 40.0,
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      16.0, 0.0, 16.0, 0.0),
+                                  iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 0.0),
+                                  color: FlutterFlowTheme.of(context).primary,
+                                  textStyle: FlutterFlowTheme.of(context)
+                                      .titleSmall
+                                      .override(
+                                        font: GoogleFonts.figtree(
                                           fontWeight:
                                               FlutterFlowTheme.of(context)
                                                   .titleSmall
@@ -666,15 +519,146 @@ class _Morsecode5WidgetState extends State<Morsecode5Widget>
                                                   .titleSmall
                                                   .fontStyle,
                                         ),
-                                    elevation: 0.0,
-                                    borderRadius: BorderRadius.circular(24.0),
-                                  ),
+                                        color: Colors.white,
+                                        letterSpacing: 0.0,
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .titleSmall
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .titleSmall
+                                            .fontStyle,
+                                      ),
+                                  elevation: 0.0,
+                                  borderRadius: BorderRadius.circular(24.0),
                                 ),
                               ),
-                            ],
-                          ),
+                            ),
+                            Padding(
+                              padding: EdgeInsets.all(6.0),
+                              child: FFButtonWidget(
+                                onPressed: () async {
+                                  logFirebaseEvent(
+                                      'MORSECODE5_PAGE_AnswerButton_ON_TAP');
+                                  logFirebaseEvent('AnswerButton_alert_dialog');
+                                  await showDialog(
+                                    context: context,
+                                    builder: (alertDialogContext) {
+                                      return AlertDialog(
+                                        title: Text('WRONG'),
+                                        content: Text('WRONG TRY AGAIN!!!'),
+                                        actions: [
+                                          TextButton(
+                                            onPressed: () => Navigator.pop(
+                                                alertDialogContext),
+                                            child: Text('Ok'),
+                                          ),
+                                        ],
+                                      );
+                                    },
+                                  );
+                                },
+                                text: FFLocalizations.of(context).getText(
+                                  'nffraosu' /* THE VISITOR IS NEAR */,
+                                ),
+                                options: FFButtonOptions(
+                                  height: 40.0,
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      16.0, 0.0, 16.0, 0.0),
+                                  iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 0.0),
+                                  color: FlutterFlowTheme.of(context).primary,
+                                  textStyle: FlutterFlowTheme.of(context)
+                                      .titleSmall
+                                      .override(
+                                        font: GoogleFonts.figtree(
+                                          fontWeight:
+                                              FlutterFlowTheme.of(context)
+                                                  .titleSmall
+                                                  .fontWeight,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .titleSmall
+                                                  .fontStyle,
+                                        ),
+                                        color: Colors.white,
+                                        letterSpacing: 0.0,
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .titleSmall
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .titleSmall
+                                            .fontStyle,
+                                      ),
+                                  elevation: 0.0,
+                                  borderRadius: BorderRadius.circular(24.0),
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding: EdgeInsets.all(6.0),
+                              child: FFButtonWidget(
+                                onPressed: () async {
+                                  logFirebaseEvent(
+                                      'MORSECODE5_PAGE_AnswerButton_ON_TAP');
+                                  logFirebaseEvent('AnswerButton_alert_dialog');
+                                  await showDialog(
+                                    context: context,
+                                    builder: (alertDialogContext) {
+                                      return AlertDialog(
+                                        title: Text('WRONG'),
+                                        content: Text('WRONG TRY AGAIN!!!'),
+                                        actions: [
+                                          TextButton(
+                                            onPressed: () => Navigator.pop(
+                                                alertDialogContext),
+                                            child: Text('Ok'),
+                                          ),
+                                        ],
+                                      );
+                                    },
+                                  );
+                                },
+                                text: FFLocalizations.of(context).getText(
+                                  '5828nd2b' /* THAT VISITOR IS HERE */,
+                                ),
+                                options: FFButtonOptions(
+                                  height: 41.24,
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      16.0, 0.0, 16.0, 0.0),
+                                  iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 0.0),
+                                  color: FlutterFlowTheme.of(context).primary,
+                                  textStyle: FlutterFlowTheme.of(context)
+                                      .titleSmall
+                                      .override(
+                                        font: GoogleFonts.figtree(
+                                          fontWeight:
+                                              FlutterFlowTheme.of(context)
+                                                  .titleSmall
+                                                  .fontWeight,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .titleSmall
+                                                  .fontStyle,
+                                        ),
+                                        color: Colors.white,
+                                        letterSpacing: 0.0,
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .titleSmall
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .titleSmall
+                                            .fontStyle,
+                                      ),
+                                  elevation: 0.0,
+                                  borderRadius: BorderRadius.circular(24.0),
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
                       ),
+                    ),
                     Align(
                       alignment: AlignmentDirectional(0.83, -0.93),
                       child: InkWell(

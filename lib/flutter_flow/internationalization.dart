@@ -381,10 +381,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // ConfettiWinnerPagecc1
   {
-    's9yqdvht': {
-      'en': 'Caeser Cipher - Level 1',
-      'ms': '',
-    },
     'dpacge05': {
       'en': 'YOU CRACKED THE CODE!',
       'ms': '',
@@ -491,10 +487,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // ConfettiWinnerPageab1
   {
-    'z9vpdbng': {
-      'en': 'Atbash Cipher - Level 1',
-      'ms': '',
-    },
     'sq9j1lho': {
       'en': 'YOU CRACKED THE CODE!',
       'ms': '',
@@ -952,8 +944,21 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // SETTINGS
   {
-    'ffhwce5d': {
-      'en': 'Sound Effects',
+    'a75t1vnc': {
+      'en': 'Audio Settings',
+      'ms': '',
+    },
+    '8wmntvtp': {
+      'en':
+          'Control background music and sound effects for your gaming experience.',
+      'ms': '',
+    },
+    'seude6nq': {
+      'en': 'Play Music',
+      'ms': '',
+    },
+    'vw52ivyo': {
+      'en': 'Pause Music',
       'ms': '',
     },
     '6y3etymp': {
@@ -967,10 +972,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // ConfettiWinnerPageV1
   {
-    'oca48s6z': {
-      'en': 'Vigenère Cipher - Level 1',
-      'ms': '',
-    },
     'hr1j0bob': {
       'en': 'YOU CRACKED THE CODE!',
       'ms': '',
@@ -1008,10 +1009,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // ConfettiWinnerPageCC5
   {
-    '0gcb064g': {
-      'en': 'Caeser Cipher - Level 5',
-      'ms': '',
-    },
     'w1qzp80v': {
       'en': 'YOU CRACKED THE CODE!',
       'ms': '',
@@ -1049,10 +1046,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // ConfettiWinnerPageCC4
   {
-    '6ghy9jus': {
-      'en': 'Caeser Cipher - Level 4',
-      'ms': '',
-    },
     '54n3nzhp': {
       'en': 'YOU CRACKED THE CODE!',
       'ms': '',
@@ -1090,10 +1083,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // ConfettiWinnerPageCC3
   {
-    'i45eoiqk': {
-      'en': 'Caeser Cipher - Level 3',
-      'ms': '',
-    },
     'gxmhbztg': {
       'en': 'YOU CRACKED THE CODE!',
       'ms': '',
@@ -1131,10 +1120,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // ConfettiWinnerPageaCC2
   {
-    'mecwe55b': {
-      'en': 'Caeser Cipher - Level 2',
-      'ms': '',
-    },
     '0fhbblbg': {
       'en': 'YOU CRACKED THE CODE!',
       'ms': '',
@@ -1171,10 +1156,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // ConfettiWinnerPageab5
   {
-    'uwplutdd': {
-      'en': 'Atbash Cipher - Level 5',
-      'ms': '',
-    },
     'sf9e8nd9': {
       'en': 'YOU CRACKED THE CODE!',
       'ms': '',
@@ -1211,10 +1192,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // ConfettiWinnerPageab4
   {
-    'by1hhohw': {
-      'en': 'Atbash Cipher - Level 4',
-      'ms': '',
-    },
     '3blztvnx': {
       'en': 'YOU CRACKED THE CODE!',
       'ms': '',
@@ -1251,10 +1228,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // ConfettiWinnerPageab3
   {
-    'j6fmkxlh': {
-      'en': 'Atbash Cipher - Level 3',
-      'ms': '',
-    },
     's64ckzvt': {
       'en': 'YOU CRACKED THE CODE!',
       'ms': '',
@@ -1291,10 +1264,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // ConfettiWinnerPageab2
   {
-    'zuuxtzb1': {
-      'en': 'Atbash Cipher - Level 2',
-      'ms': '',
-    },
     'q3on5jeh': {
       'en': 'YOU CRACKED THE CODE!',
       'ms': '',
@@ -1331,10 +1300,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // ConfettiWinnerPageV3
   {
-    'huc8exc4': {
-      'en': 'Vigenère Cipher- Level 3',
-      'ms': '',
-    },
     'dadfuwie': {
       'en': 'YOU CRACKED THE CODE!',
       'ms': '',
@@ -1372,10 +1337,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // ConfettiWinnerPageV5
   {
-    'zs5prw3n': {
-      'en': 'Vigenère Cipher - Level 5',
-      'ms': '',
-    },
     '66cgptfi': {
       'en': 'YOU CRACKED THE CODE!',
       'ms': '',
@@ -1413,10 +1374,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // ConfettiWinnerPageV4
   {
-    'jks1ak33': {
-      'en': 'Vigenère Cipher - Level 4',
-      'ms': '',
-    },
     'uudrrnw0': {
       'en': 'YOU CRACKED THE CODE!',
       'ms': '',
@@ -1454,10 +1411,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // ConfettiWinnerPageV2
   {
-    'zwei79i0': {
-      'en': 'Vigenère Cipher - Level 2',
-      'ms': '',
-    },
     't9stsqdj': {
       'en': 'YOU CRACKED THE CODE!',
       'ms': '',
@@ -1671,10 +1624,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // ConfettiWinnerPageMC1
   {
-    '3uz12w30': {
-      'en': 'Morse Code - Level 1',
-      'ms': '',
-    },
     '8oufjytz': {
       'en': 'YOU CRACKED THE CODE!',
       'ms': '',
@@ -1711,10 +1660,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // ConfettiWinnerPageMC2
   {
-    '8ijuyuoh': {
-      'en': 'Morse Code - Level 2',
-      'ms': '',
-    },
     'eb8iq8uq': {
       'en': 'YOU CRACKED THE CODE!',
       'ms': '',
@@ -1751,10 +1696,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // ConfettiWinnerPageMC3
   {
-    'oil3vgm3': {
-      'en': 'Morse Code - Level 3',
-      'ms': '',
-    },
     'lm1i72gr': {
       'en': 'YOU CRACKED THE CODE!',
       'ms': '',
@@ -1792,10 +1733,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // ConfettiWinnerPageMC4
   {
-    'fj8cacwh': {
-      'en': 'Morse Code - Level 4',
-      'ms': '',
-    },
     '455jgptm': {
       'en': 'YOU CRACKED THE CODE!',
       'ms': '',
@@ -1833,10 +1770,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // ConfettiWinnerPageMC5
   {
-    'hp1zausd': {
-      'en': 'Morse Code - Level 5',
-      'ms': '',
-    },
     'g0m5vjth': {
       'en': 'YOU CRACKED THE CODE!',
       'ms': '',

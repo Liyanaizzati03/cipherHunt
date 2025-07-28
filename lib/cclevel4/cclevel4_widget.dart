@@ -235,7 +235,7 @@ class _Cclevel4WidgetState extends State<Cclevel4Widget>
                                                   'assets/images/G_(2).jpg',
                                                   fit: BoxFit.contain,
                                                 ),
-                                                allowRotation: false,
+                                                allowRotation: true,
                                                 tag: 'imageTag',
                                                 useHeroAnimation: true,
                                               ),
@@ -395,6 +395,7 @@ class _Cclevel4WidgetState extends State<Cclevel4Widget>
                           padding: EdgeInsets.all(10.0),
                           child: ListView(
                             padding: EdgeInsets.zero,
+                            reverse: true,
                             shrinkWrap: true,
                             scrollDirection: Axis.vertical,
                             children: [
@@ -526,55 +527,40 @@ class _Cclevel4WidgetState extends State<Cclevel4Widget>
                                   ),
                                 ),
                               ),
-                              if ((FFAppState().correctOption == '1') &&
-                                  (FFAppState().curentQuestion == 1))
-                                Padding(
-                                  padding: EdgeInsets.all(6.0),
-                                  child: FFButtonWidget(
-                                    onPressed: () async {
-                                      logFirebaseEvent(
-                                          'CCLEVEL4_PAGE_AnswerButton_ON_TAP');
-                                      logFirebaseEvent(
-                                          'AnswerButton_navigate_to');
+                              Padding(
+                                padding: EdgeInsets.all(6.0),
+                                child: FFButtonWidget(
+                                  onPressed: () async {
+                                    logFirebaseEvent(
+                                        'CCLEVEL4_PAGE_AnswerButton_ON_TAP');
+                                    logFirebaseEvent(
+                                        'AnswerButton_navigate_to');
 
-                                      context.pushNamed(
-                                        ConfettiWinnerPageCC4Widget.routeName,
-                                        extra: <String, dynamic>{
-                                          kTransitionInfoKey: TransitionInfo(
-                                            hasTransition: true,
-                                            transitionType:
-                                                PageTransitionType.bottomToTop,
-                                          ),
-                                        },
-                                      );
-                                    },
-                                    text: FFLocalizations.of(context).getText(
-                                      'asne7yig' /* IFYF XJFWYD */,
-                                    ),
-                                    options: FFButtonOptions(
-                                      height: 40.0,
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          16.0, 0.0, 16.0, 0.0),
-                                      iconPadding:
-                                          EdgeInsetsDirectional.fromSTEB(
-                                              0.0, 0.0, 0.0, 0.0),
-                                      color:
-                                          FlutterFlowTheme.of(context).primary,
-                                      textStyle: FlutterFlowTheme.of(context)
-                                          .titleSmall
-                                          .override(
-                                            font: GoogleFonts.figtree(
-                                              fontWeight:
-                                                  FlutterFlowTheme.of(context)
-                                                      .titleSmall
-                                                      .fontWeight,
-                                              fontStyle:
-                                                  FlutterFlowTheme.of(context)
-                                                      .titleSmall
-                                                      .fontStyle,
-                                            ),
-                                            color: Colors.white,
-                                            letterSpacing: 0.0,
+                                    context.pushNamed(
+                                      ConfettiWinnerPageCC4Widget.routeName,
+                                      extra: <String, dynamic>{
+                                        kTransitionInfoKey: TransitionInfo(
+                                          hasTransition: true,
+                                          transitionType:
+                                              PageTransitionType.bottomToTop,
+                                        ),
+                                      },
+                                    );
+                                  },
+                                  text: FFLocalizations.of(context).getText(
+                                    'asne7yig' /* IFYF XJFWYD */,
+                                  ),
+                                  options: FFButtonOptions(
+                                    height: 40.0,
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        16.0, 0.0, 16.0, 0.0),
+                                    iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 0.0, 0.0),
+                                    color: FlutterFlowTheme.of(context).primary,
+                                    textStyle: FlutterFlowTheme.of(context)
+                                        .titleSmall
+                                        .override(
+                                          font: GoogleFonts.figtree(
                                             fontWeight:
                                                 FlutterFlowTheme.of(context)
                                                     .titleSmall
@@ -584,11 +570,22 @@ class _Cclevel4WidgetState extends State<Cclevel4Widget>
                                                     .titleSmall
                                                     .fontStyle,
                                           ),
-                                      elevation: 0.0,
-                                      borderRadius: BorderRadius.circular(24.0),
-                                    ),
+                                          color: Colors.white,
+                                          letterSpacing: 0.0,
+                                          fontWeight:
+                                              FlutterFlowTheme.of(context)
+                                                  .titleSmall
+                                                  .fontWeight,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .titleSmall
+                                                  .fontStyle,
+                                        ),
+                                    elevation: 0.0,
+                                    borderRadius: BorderRadius.circular(24.0),
                                   ),
                                 ),
+                              ),
                               Padding(
                                 padding: EdgeInsets.all(6.0),
                                 child: FFButtonWidget(

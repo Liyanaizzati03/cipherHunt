@@ -8,6 +8,7 @@ import 'package:provider/provider.dart';
 import 'caesercipherlevel_model.dart';
 export 'caesercipherlevel_model.dart';
 
+/// lock all the level except level 1
 class CaesercipherlevelWidget extends StatefulWidget {
   const CaesercipherlevelWidget({super.key});
 
@@ -208,72 +209,54 @@ class _CaesercipherlevelWidgetState extends State<CaesercipherlevelWidget> {
                                 color: FlutterFlowTheme.of(context).tertiary,
                               ),
                             ),
-                            child: Visibility(
-                              visible: FFAppState().lastAchievedLevel == null,
-                              child: Padding(
-                                padding: EdgeInsets.all(18.0),
-                                child: InkWell(
-                                  splashColor: Colors.transparent,
-                                  focusColor: Colors.transparent,
-                                  hoverColor: Colors.transparent,
-                                  highlightColor: Colors.transparent,
-                                  onTap: () async {
-                                    logFirebaseEvent(
-                                        'CAESERCIPHERLEVEL_Row_zg0elb9s_ON_TAP');
-                                    logFirebaseEvent('Row_navigate_to');
+                            child: Padding(
+                              padding: EdgeInsets.all(18.0),
+                              child: InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  logFirebaseEvent(
+                                      'CAESERCIPHERLEVEL_Row_zg0elb9s_ON_TAP');
+                                  logFirebaseEvent('Row_navigate_to');
 
-                                    context.pushNamed(
-                                      Cclevel1Widget.routeName,
-                                      queryParameters: {
-                                        'correctOption': serializeParam(
-                                          '',
-                                          ParamType.String,
-                                        ),
-                                        'currentLevel': serializeParam(
-                                          0,
-                                          ParamType.int,
-                                        ),
-                                      }.withoutNulls,
-                                      extra: <String, dynamic>{
-                                        kTransitionInfoKey: TransitionInfo(
-                                          hasTransition: true,
-                                          transitionType:
-                                              PageTransitionType.fade,
-                                          duration: Duration(milliseconds: 200),
-                                        ),
-                                      },
-                                    );
-                                  },
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    children: [
-                                      Expanded(
-                                        child: Align(
-                                          alignment:
-                                              AlignmentDirectional(0.0, 0.0),
-                                          child: Text(
-                                            FFLocalizations.of(context).getText(
-                                              '5y09n0ya' /* LEVEL 1 */,
-                                            ),
-                                            style: FlutterFlowTheme.of(context)
-                                                .displayMedium
-                                                .override(
-                                                  font:
-                                                      GoogleFonts.spaceGrotesk(
-                                                    fontWeight:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .displayMedium
-                                                            .fontWeight,
-                                                    fontStyle:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .displayMedium
-                                                            .fontStyle,
-                                                  ),
-                                                  color: Color(0xFF643CBB),
-                                                  fontSize: 25.0,
-                                                  letterSpacing: 0.0,
+                                  context.pushNamed(
+                                    Cclevel1Widget.routeName,
+                                    queryParameters: {
+                                      'correctOption': serializeParam(
+                                        '',
+                                        ParamType.String,
+                                      ),
+                                      'currentLevel': serializeParam(
+                                        0,
+                                        ParamType.int,
+                                      ),
+                                    }.withoutNulls,
+                                    extra: <String, dynamic>{
+                                      kTransitionInfoKey: TransitionInfo(
+                                        hasTransition: true,
+                                        transitionType: PageTransitionType.fade,
+                                        duration: Duration(milliseconds: 200),
+                                      ),
+                                    },
+                                  );
+                                },
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    Expanded(
+                                      child: Align(
+                                        alignment:
+                                            AlignmentDirectional(0.0, 0.0),
+                                        child: Text(
+                                          FFLocalizations.of(context).getText(
+                                            '5y09n0ya' /* LEVEL 1 */,
+                                          ),
+                                          style: FlutterFlowTheme.of(context)
+                                              .displayMedium
+                                              .override(
+                                                font: GoogleFonts.spaceGrotesk(
                                                   fontWeight:
                                                       FlutterFlowTheme.of(
                                                               context)
@@ -285,11 +268,22 @@ class _CaesercipherlevelWidgetState extends State<CaesercipherlevelWidget> {
                                                           .displayMedium
                                                           .fontStyle,
                                                 ),
-                                          ),
+                                                color: Color(0xFF643CBB),
+                                                fontSize: 25.0,
+                                                letterSpacing: 0.0,
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .displayMedium
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .displayMedium
+                                                        .fontStyle,
+                                              ),
                                         ),
                                       ),
-                                    ],
-                                  ),
+                                    ),
+                                  ],
                                 ),
                               ),
                             ),

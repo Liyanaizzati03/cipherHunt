@@ -1,10 +1,9 @@
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
-import '/flutter_flow/flutter_flow_toggle_icon.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
+import 'package:just_audio/just_audio.dart';
 import 'settings_model.dart';
 export 'settings_model.dart';
 
@@ -41,8 +40,6 @@ class _SettingsWidgetState extends State<SettingsWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).unfocus();
@@ -96,117 +93,226 @@ class _SettingsWidgetState extends State<SettingsWidget> {
         ),
         body: SafeArea(
           top: true,
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            children: [
-              Expanded(
-                child: Align(
-                  alignment: AlignmentDirectional(0.0, 0.0),
-                  child: Padding(
-                    padding: EdgeInsets.all(12.0),
-                    child: ListView(
-                      padding: EdgeInsets.zero,
-                      shrinkWrap: true,
-                      scrollDirection: Axis.vertical,
-                      children: [
-                        Container(
-                          width: 50.0,
-                          height: 120.0,
-                          decoration: BoxDecoration(
-                            boxShadow: [
-                              BoxShadow(
-                                blurRadius: 4.0,
-                                color: Color(0x33000000),
-                                offset: Offset(
-                                  0.0,
-                                  2.0,
+          child: Align(
+            alignment: AlignmentDirectional(0.0, 0.0),
+            child: Padding(
+              padding: EdgeInsets.all(8.0),
+              child: Column(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                    child: Material(
+                      color: Colors.transparent,
+                      elevation: 1.0,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12.0),
+                      ),
+                      child: Container(
+                        width: double.infinity,
+                        decoration: BoxDecoration(
+                          color:
+                              FlutterFlowTheme.of(context).secondaryBackground,
+                          borderRadius: BorderRadius.circular(12.0),
+                        ),
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              16.0, 16.0, 16.0, 16.0),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                FFLocalizations.of(context).getText(
+                                  'a75t1vnc' /* Audio Settings */,
                                 ),
-                              )
-                            ],
-                            gradient: LinearGradient(
-                              colors: [Color(0xFF847FFF), Color(0xFF5C9CFF)],
-                              stops: [0.0, 1.0],
-                              begin: AlignmentDirectional(0.0, -1.0),
-                              end: AlignmentDirectional(0, 1.0),
-                            ),
-                            borderRadius: BorderRadius.circular(24.0),
-                            border: Border.all(
-                              color: FlutterFlowTheme.of(context).tertiary,
-                            ),
-                          ),
-                          child: Padding(
-                            padding: EdgeInsets.all(12.0),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                if (FFAppState().musicFile != '')
-                                  Expanded(
-                                    child: Padding(
-                                      padding: EdgeInsets.all(12.0),
-                                      child: ToggleIcon(
-                                        onPressed: () async {
-                                          safeSetState(() =>
-                                              FFAppState().isSoundOn =
-                                                  !FFAppState().isSoundOn);
-                                        },
-                                        value: FFAppState().isSoundOn,
-                                        onIcon: Icon(
-                                          Icons.volume_up,
-                                          color: FlutterFlowTheme.of(context)
-                                              .primaryText,
-                                          size: 30.0,
-                                        ),
-                                        offIcon: Icon(
-                                          Icons.volume_off_sharp,
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondaryText,
-                                          size: 30.0,
-                                        ),
+                                style: FlutterFlowTheme.of(context)
+                                    .titleMedium
+                                    .override(
+                                      font: GoogleFonts.figtree(
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .titleMedium
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .titleMedium
+                                            .fontStyle,
                                       ),
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryText,
+                                      letterSpacing: 0.0,
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .titleMedium
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .titleMedium
+                                          .fontStyle,
                                     ),
-                                  ),
-                                Flexible(
-                                  child: Text(
-                                    FFLocalizations.of(context).getText(
-                                      'ffhwce5d' /* Sound Effects */,
-                                    ),
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          font: GoogleFonts.figtree(
-                                            fontWeight:
-                                                FlutterFlowTheme.of(context)
-                                                    .bodyMedium
-                                                    .fontWeight,
-                                            fontStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .bodyMedium
-                                                    .fontStyle,
-                                          ),
-                                          letterSpacing: 0.0,
-                                          fontWeight:
-                                              FlutterFlowTheme.of(context)
-                                                  .bodyMedium
-                                                  .fontWeight,
-                                          fontStyle:
-                                              FlutterFlowTheme.of(context)
-                                                  .bodyMedium
-                                                  .fontStyle,
-                                        ),
-                                  ),
+                              ),
+                              Text(
+                                FFLocalizations.of(context).getText(
+                                  '8wmntvtp' /* Control background music and s... */,
                                 ),
-                              ],
-                            ),
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      font: GoogleFonts.figtree(
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontStyle,
+                                      ),
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondaryText,
+                                      letterSpacing: 0.0,
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
+                                    ),
+                              ),
+                              Row(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceAround,
+                                children: [
+                                  Column(
+                                    mainAxisSize: MainAxisSize.min,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: [
+                                      FlutterFlowIconButton(
+                                        borderRadius: 30.0,
+                                        buttonSize: 60.0,
+                                        fillColor: FlutterFlowTheme.of(context)
+                                            .primary,
+                                        icon: Icon(
+                                          Icons.play_arrow_rounded,
+                                          color: Colors.white,
+                                          size: 30.0,
+                                        ),
+                                        onPressed: () async {
+                                          logFirebaseEvent(
+                                              'SETTINGS_play_arrow_rounded_ICN_ON_TAP');
+                                          logFirebaseEvent(
+                                              'IconButton_play_sound');
+                                          _model.soundPlayer ??= AudioPlayer();
+                                          if (_model.soundPlayer!.playing) {
+                                            await _model.soundPlayer!.stop();
+                                          }
+                                          _model.soundPlayer!.setVolume(1.0);
+                                          _model.soundPlayer!
+                                              .setAsset(
+                                                  'assets/audios/Nevada_-_Vicetone_Nublet_Karaoke.mp3')
+                                              .then((_) =>
+                                                  _model.soundPlayer!.play());
+                                        },
+                                      ),
+                                      Text(
+                                        FFLocalizations.of(context).getText(
+                                          'seude6nq' /* Play Music */,
+                                        ),
+                                        style: FlutterFlowTheme.of(context)
+                                            .labelMedium
+                                            .override(
+                                              font: GoogleFonts.figtree(
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .labelMedium
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .labelMedium
+                                                        .fontStyle,
+                                              ),
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryText,
+                                              letterSpacing: 0.0,
+                                              fontWeight:
+                                                  FlutterFlowTheme.of(context)
+                                                      .labelMedium
+                                                      .fontWeight,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .labelMedium
+                                                      .fontStyle,
+                                            ),
+                                      ),
+                                    ].divide(SizedBox(height: 8.0)),
+                                  ),
+                                  Column(
+                                    mainAxisSize: MainAxisSize.min,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: [
+                                      FlutterFlowIconButton(
+                                        borderRadius: 30.0,
+                                        buttonSize: 60.0,
+                                        fillColor: FlutterFlowTheme.of(context)
+                                            .secondary,
+                                        icon: Icon(
+                                          Icons.pause_rounded,
+                                          color: Colors.white,
+                                          size: 30.0,
+                                        ),
+                                        onPressed: () async {
+                                          logFirebaseEvent(
+                                              'SETTINGS_PAGE_pause_rounded_ICN_ON_TAP');
+                                          logFirebaseEvent(
+                                              'IconButton_stop_sound');
+                                          _model.soundPlayer?.stop();
+                                        },
+                                      ),
+                                      Text(
+                                        FFLocalizations.of(context).getText(
+                                          'vw52ivyo' /* Pause Music */,
+                                        ),
+                                        style: FlutterFlowTheme.of(context)
+                                            .labelMedium
+                                            .override(
+                                              font: GoogleFonts.figtree(
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .labelMedium
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .labelMedium
+                                                        .fontStyle,
+                                              ),
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryText,
+                                              letterSpacing: 0.0,
+                                              fontWeight:
+                                                  FlutterFlowTheme.of(context)
+                                                      .labelMedium
+                                                      .fontWeight,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .labelMedium
+                                                      .fontStyle,
+                                            ),
+                                      ),
+                                    ].divide(SizedBox(height: 8.0)),
+                                  ),
+                                ].divide(SizedBox(width: 16.0)),
+                              ),
+                            ].divide(SizedBox(height: 12.0)),
                           ),
                         ),
-                      ],
+                      ),
                     ),
                   ),
-                ),
+                ],
               ),
-            ],
+            ),
           ),
         ),
       ),

@@ -122,58 +122,53 @@ class _Vigenerelevel1WidgetState extends State<Vigenerelevel1Widget>
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: Color(0xFF847FFF),
-        appBar: PreferredSize(
-          preferredSize: Size.fromHeight(50.0),
-          child: AppBar(
-            backgroundColor: FlutterFlowTheme.of(context).primary,
-            automaticallyImplyLeading: false,
-            leading: FlutterFlowIconButton(
-              borderColor: Colors.transparent,
-              borderRadius: 30.0,
-              borderWidth: 1.0,
-              buttonSize: 60.0,
-              icon: Icon(
-                Icons.arrow_back_rounded,
-                color: Colors.white,
-                size: 30.0,
-              ),
-              onPressed: () async {
-                logFirebaseEvent('VIGENERELEVEL1_arrow_back_rounded_ICN_ON');
-                logFirebaseEvent('IconButton_navigate_back');
-                context.pop();
-              },
+        appBar: AppBar(
+          backgroundColor: FlutterFlowTheme.of(context).primary,
+          automaticallyImplyLeading: false,
+          leading: FlutterFlowIconButton(
+            borderColor: Colors.transparent,
+            borderRadius: 30.0,
+            borderWidth: 1.0,
+            buttonSize: 60.0,
+            icon: Icon(
+              Icons.arrow_back_rounded,
+              color: Colors.white,
+              size: 30.0,
             ),
-            actions: [],
-            flexibleSpace: FlexibleSpaceBar(
-              title: Text(
-                FFLocalizations.of(context).getText(
-                  '3h60o9md' /* Vigenere Cipher - Level 1 */,
-                ),
-                style: FlutterFlowTheme.of(context).headlineMedium.override(
-                      font: GoogleFonts.lora(
-                        fontWeight: FlutterFlowTheme.of(context)
-                            .headlineMedium
-                            .fontWeight,
-                        fontStyle: FlutterFlowTheme.of(context)
-                            .headlineMedium
-                            .fontStyle,
-                      ),
-                      color: Colors.white,
-                      fontSize: 22.0,
-                      letterSpacing: 0.0,
+            onPressed: () async {
+              logFirebaseEvent('VIGENERELEVEL1_arrow_back_rounded_ICN_ON');
+              logFirebaseEvent('IconButton_navigate_back');
+              context.pop();
+            },
+          ),
+          actions: [],
+          flexibleSpace: FlexibleSpaceBar(
+            title: Text(
+              FFLocalizations.of(context).getText(
+                '3h60o9md' /* Vigenere Cipher - Level 1 */,
+              ),
+              style: FlutterFlowTheme.of(context).headlineMedium.override(
+                    font: GoogleFonts.lora(
                       fontWeight: FlutterFlowTheme.of(context)
                           .headlineMedium
                           .fontWeight,
                       fontStyle:
                           FlutterFlowTheme.of(context).headlineMedium.fontStyle,
                     ),
-              ),
-              centerTitle: true,
-              expandedTitleScale: 1.0,
-              titlePadding: EdgeInsets.all(20.0),
+                    color: Colors.white,
+                    fontSize: 22.0,
+                    letterSpacing: 0.0,
+                    fontWeight:
+                        FlutterFlowTheme.of(context).headlineMedium.fontWeight,
+                    fontStyle:
+                        FlutterFlowTheme.of(context).headlineMedium.fontStyle,
+                  ),
             ),
-            elevation: 2.0,
+            centerTitle: true,
+            expandedTitleScale: 1.0,
+            titlePadding: EdgeInsets.all(20.0),
           ),
+          elevation: 2.0,
         ),
         body: SafeArea(
           top: true,
@@ -296,7 +291,7 @@ class _Vigenerelevel1WidgetState extends State<Vigenerelevel1Widget>
                                                   'assets/images/after_the_shift_happens_to_all_letter_(6).gif',
                                                   fit: BoxFit.contain,
                                                 ),
-                                                allowRotation: false,
+                                                allowRotation: true,
                                                 tag: 'imageTag',
                                                 useHeroAnimation: true,
                                               ),
@@ -413,187 +408,54 @@ COM... */
                     ),
                   ),
                 ),
-                if ((widget.correctOption != null &&
-                        widget.correctOption != '') &&
-                    widget.currentQuestion)
-                  Align(
-                    alignment: AlignmentDirectional(0.0, 1.02),
-                    child: Padding(
-                      padding: EdgeInsets.all(10.0),
-                      child: ListView(
-                        padding: EdgeInsets.zero,
-                        shrinkWrap: true,
-                        scrollDirection: Axis.vertical,
-                        children: [
-                          Padding(
-                            padding: EdgeInsets.all(4.0),
-                            child: FFButtonWidget(
-                              onPressed: () async {
-                                logFirebaseEvent(
-                                    'VIGENERELEVEL1_PAGE_MSKZYROU_BTN_ON_TAP');
-                                logFirebaseEvent('Button_alert_dialog');
-                                await showDialog(
-                                  context: context,
-                                  builder: (alertDialogContext) {
-                                    return AlertDialog(
-                                      title: Text('WRONG'),
-                                      content: Text('WRONG TRY AGAIN!!!'),
-                                      actions: [
-                                        TextButton(
-                                          onPressed: () =>
-                                              Navigator.pop(alertDialogContext),
-                                          child: Text('Ok'),
-                                        ),
-                                      ],
-                                    );
-                                  },
-                                );
-                              },
-                              text: FFLocalizations.of(context).getText(
-                                'srbnexyv' /*  MSKZYROU */,
-                              ),
-                              options: FFButtonOptions(
-                                height: 40.0,
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    16.0, 0.0, 16.0, 0.0),
-                                iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 0.0, 0.0),
-                                color: FlutterFlowTheme.of(context).primary,
-                                textStyle: FlutterFlowTheme.of(context)
-                                    .titleSmall
-                                    .override(
-                                      font: GoogleFonts.figtree(
-                                        fontWeight: FlutterFlowTheme.of(context)
-                                            .titleSmall
-                                            .fontWeight,
-                                        fontStyle: FlutterFlowTheme.of(context)
-                                            .titleSmall
-                                            .fontStyle,
+                Align(
+                  alignment: AlignmentDirectional(0.0, 1.02),
+                  child: Padding(
+                    padding: EdgeInsets.all(10.0),
+                    child: ListView(
+                      padding: EdgeInsets.zero,
+                      reverse: true,
+                      shrinkWrap: true,
+                      scrollDirection: Axis.vertical,
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.all(4.0),
+                          child: FFButtonWidget(
+                            onPressed: () async {
+                              logFirebaseEvent(
+                                  'VIGENERELEVEL1_PAGE_MSKZYROU_BTN_ON_TAP');
+                              logFirebaseEvent('Button_alert_dialog');
+                              await showDialog(
+                                context: context,
+                                builder: (alertDialogContext) {
+                                  return AlertDialog(
+                                    title: Text('WRONG'),
+                                    content: Text('WRONG TRY AGAIN!!!'),
+                                    actions: [
+                                      TextButton(
+                                        onPressed: () =>
+                                            Navigator.pop(alertDialogContext),
+                                        child: Text('Ok'),
                                       ),
-                                      color: Colors.white,
-                                      letterSpacing: 0.0,
-                                      fontWeight: FlutterFlowTheme.of(context)
-                                          .titleSmall
-                                          .fontWeight,
-                                      fontStyle: FlutterFlowTheme.of(context)
-                                          .titleSmall
-                                          .fontStyle,
-                                    ),
-                                elevation: 0.0,
-                                borderRadius: BorderRadius.circular(24.0),
-                              ),
-                            ),
-                          ),
-                          if (FFAppState().correctOption == '1')
-                            Padding(
-                              padding: EdgeInsets.all(4.0),
-                              child: FFButtonWidget(
-                                onPressed: () async {
-                                  logFirebaseEvent(
-                                      'VIGENERELEVEL1_PAGE_corectOption_ON_TAP');
-                                  logFirebaseEvent('corectOption_navigate_to');
-
-                                  context.pushNamed(
-                                    ConfettiWinnerPageV1Widget.routeName,
-                                    queryParameters: {
-                                      'correctOption': serializeParam(
-                                        0,
-                                        ParamType.int,
-                                      ),
-                                    }.withoutNulls,
-                                    extra: <String, dynamic>{
-                                      kTransitionInfoKey: TransitionInfo(
-                                        hasTransition: true,
-                                        transitionType:
-                                            PageTransitionType.bottomToTop,
-                                      ),
-                                    },
+                                    ],
                                   );
                                 },
-                                text: FFLocalizations.of(context).getText(
-                                  'm6whn81j' /* MSKZYROV */,
-                                ),
-                                options: FFButtonOptions(
-                                  height: 40.0,
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      16.0, 0.0, 16.0, 0.0),
-                                  iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 0.0, 0.0),
-                                  color: FlutterFlowTheme.of(context).primary,
-                                  textStyle: FlutterFlowTheme.of(context)
-                                      .titleSmall
-                                      .override(
-                                        font: GoogleFonts.figtree(
-                                          fontWeight:
-                                              FlutterFlowTheme.of(context)
-                                                  .titleSmall
-                                                  .fontWeight,
-                                          fontStyle:
-                                              FlutterFlowTheme.of(context)
-                                                  .titleSmall
-                                                  .fontStyle,
-                                        ),
-                                        color: Colors.white,
-                                        letterSpacing: 0.0,
-                                        fontWeight: FlutterFlowTheme.of(context)
-                                            .titleSmall
-                                            .fontWeight,
-                                        fontStyle: FlutterFlowTheme.of(context)
-                                            .titleSmall
-                                            .fontStyle,
-                                      ),
-                                  elevation: 0.0,
-                                  borderRadius: BorderRadius.circular(24.0),
-                                ),
-                              ),
+                              );
+                            },
+                            text: FFLocalizations.of(context).getText(
+                              'srbnexyv' /*  MSKZYROU */,
                             ),
-                          Padding(
-                            padding: EdgeInsets.all(6.0),
-                            child: FFButtonWidget(
-                              onPressed: () async {
-                                logFirebaseEvent(
-                                    'VIGENERELEVEL1_PAGE_MSKZYRQV_BTN_ON_TAP');
-                                logFirebaseEvent('Button_alert_dialog');
-                                await showDialog(
-                                  context: context,
-                                  builder: (alertDialogContext) {
-                                    return AlertDialog(
-                                      title: Text('WRONG'),
-                                      content: Text('WRONG TRY AGAIN!!!'),
-                                      actions: [
-                                        TextButton(
-                                          onPressed: () =>
-                                              Navigator.pop(alertDialogContext),
-                                          child: Text('Ok'),
-                                        ),
-                                      ],
-                                    );
-                                  },
-                                );
-                              },
-                              text: FFLocalizations.of(context).getText(
-                                '9kofism5' /*  MSKZYRQV */,
-                              ),
-                              options: FFButtonOptions(
-                                height: 40.0,
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    16.0, 0.0, 16.0, 0.0),
-                                iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 0.0, 0.0),
-                                color: FlutterFlowTheme.of(context).primary,
-                                textStyle: FlutterFlowTheme.of(context)
-                                    .titleSmall
-                                    .override(
-                                      font: GoogleFonts.figtree(
-                                        fontWeight: FlutterFlowTheme.of(context)
-                                            .titleSmall
-                                            .fontWeight,
-                                        fontStyle: FlutterFlowTheme.of(context)
-                                            .titleSmall
-                                            .fontStyle,
-                                      ),
-                                      color: Colors.white,
-                                      letterSpacing: 0.0,
+                            options: FFButtonOptions(
+                              height: 40.0,
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  16.0, 0.0, 16.0, 0.0),
+                              iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 0.0),
+                              color: FlutterFlowTheme.of(context).primary,
+                              textStyle: FlutterFlowTheme.of(context)
+                                  .titleSmall
+                                  .override(
+                                    font: GoogleFonts.figtree(
                                       fontWeight: FlutterFlowTheme.of(context)
                                           .titleSmall
                                           .fontWeight,
@@ -601,58 +463,59 @@ COM... */
                                           .titleSmall
                                           .fontStyle,
                                     ),
-                                elevation: 0.0,
-                                borderRadius: BorderRadius.circular(24.0),
-                              ),
+                                    color: Colors.white,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FlutterFlowTheme.of(context)
+                                        .titleSmall
+                                        .fontWeight,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .titleSmall
+                                        .fontStyle,
+                                  ),
+                              elevation: 0.0,
+                              borderRadius: BorderRadius.circular(24.0),
                             ),
                           ),
-                          Padding(
-                            padding: EdgeInsets.all(6.0),
-                            child: FFButtonWidget(
-                              onPressed: () async {
-                                logFirebaseEvent(
-                                    'VIGENERELEVEL1_PAGE_MSKZYRWL_BTN_ON_TAP');
-                                logFirebaseEvent('Button_alert_dialog');
-                                await showDialog(
-                                  context: context,
-                                  builder: (alertDialogContext) {
-                                    return AlertDialog(
-                                      title: Text('WRONG'),
-                                      content: Text('WRONG TRY AGAIN!!!'),
-                                      actions: [
-                                        TextButton(
-                                          onPressed: () =>
-                                              Navigator.pop(alertDialogContext),
-                                          child: Text('Ok'),
-                                        ),
-                                      ],
-                                    );
-                                  },
-                                );
-                              },
-                              text: FFLocalizations.of(context).getText(
-                                '4ci8ere0' /* MSKZYRWL */,
-                              ),
-                              options: FFButtonOptions(
-                                height: 41.24,
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    16.0, 0.0, 16.0, 0.0),
-                                iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 0.0, 0.0),
-                                color: FlutterFlowTheme.of(context).primary,
-                                textStyle: FlutterFlowTheme.of(context)
-                                    .titleSmall
-                                    .override(
-                                      font: GoogleFonts.figtree(
-                                        fontWeight: FlutterFlowTheme.of(context)
-                                            .titleSmall
-                                            .fontWeight,
-                                        fontStyle: FlutterFlowTheme.of(context)
-                                            .titleSmall
-                                            .fontStyle,
-                                      ),
-                                      color: Colors.white,
-                                      letterSpacing: 0.0,
+                        ),
+                        Padding(
+                          padding: EdgeInsets.all(4.0),
+                          child: FFButtonWidget(
+                            onPressed: () async {
+                              logFirebaseEvent(
+                                  'VIGENERELEVEL1_PAGE_corectOption_ON_TAP');
+                              logFirebaseEvent('corectOption_navigate_to');
+
+                              context.pushNamed(
+                                ConfettiWinnerPageV1Widget.routeName,
+                                queryParameters: {
+                                  'correctOption': serializeParam(
+                                    0,
+                                    ParamType.int,
+                                  ),
+                                }.withoutNulls,
+                                extra: <String, dynamic>{
+                                  kTransitionInfoKey: TransitionInfo(
+                                    hasTransition: true,
+                                    transitionType:
+                                        PageTransitionType.bottomToTop,
+                                  ),
+                                },
+                              );
+                            },
+                            text: FFLocalizations.of(context).getText(
+                              'm6whn81j' /* MSKZYROV */,
+                            ),
+                            options: FFButtonOptions(
+                              height: 40.0,
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  16.0, 0.0, 16.0, 0.0),
+                              iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 0.0),
+                              color: FlutterFlowTheme.of(context).primary,
+                              textStyle: FlutterFlowTheme.of(context)
+                                  .titleSmall
+                                  .override(
+                                    font: GoogleFonts.figtree(
                                       fontWeight: FlutterFlowTheme.of(context)
                                           .titleSmall
                                           .fontWeight,
@@ -660,15 +523,142 @@ COM... */
                                           .titleSmall
                                           .fontStyle,
                                     ),
-                                elevation: 0.0,
-                                borderRadius: BorderRadius.circular(24.0),
-                              ),
+                                    color: Colors.white,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FlutterFlowTheme.of(context)
+                                        .titleSmall
+                                        .fontWeight,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .titleSmall
+                                        .fontStyle,
+                                  ),
+                              elevation: 0.0,
+                              borderRadius: BorderRadius.circular(24.0),
                             ),
                           ),
-                        ],
-                      ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.all(6.0),
+                          child: FFButtonWidget(
+                            onPressed: () async {
+                              logFirebaseEvent(
+                                  'VIGENERELEVEL1_PAGE_MSKZYRQV_BTN_ON_TAP');
+                              logFirebaseEvent('Button_alert_dialog');
+                              await showDialog(
+                                context: context,
+                                builder: (alertDialogContext) {
+                                  return AlertDialog(
+                                    title: Text('WRONG'),
+                                    content: Text('WRONG TRY AGAIN!!!'),
+                                    actions: [
+                                      TextButton(
+                                        onPressed: () =>
+                                            Navigator.pop(alertDialogContext),
+                                        child: Text('Ok'),
+                                      ),
+                                    ],
+                                  );
+                                },
+                              );
+                            },
+                            text: FFLocalizations.of(context).getText(
+                              '9kofism5' /*  MSKZYRQV */,
+                            ),
+                            options: FFButtonOptions(
+                              height: 40.0,
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  16.0, 0.0, 16.0, 0.0),
+                              iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 0.0),
+                              color: FlutterFlowTheme.of(context).primary,
+                              textStyle: FlutterFlowTheme.of(context)
+                                  .titleSmall
+                                  .override(
+                                    font: GoogleFonts.figtree(
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .titleSmall
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .titleSmall
+                                          .fontStyle,
+                                    ),
+                                    color: Colors.white,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FlutterFlowTheme.of(context)
+                                        .titleSmall
+                                        .fontWeight,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .titleSmall
+                                        .fontStyle,
+                                  ),
+                              elevation: 0.0,
+                              borderRadius: BorderRadius.circular(24.0),
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.all(6.0),
+                          child: FFButtonWidget(
+                            onPressed: () async {
+                              logFirebaseEvent(
+                                  'VIGENERELEVEL1_PAGE_MSKZYRWL_BTN_ON_TAP');
+                              logFirebaseEvent('Button_alert_dialog');
+                              await showDialog(
+                                context: context,
+                                builder: (alertDialogContext) {
+                                  return AlertDialog(
+                                    title: Text('WRONG'),
+                                    content: Text('WRONG TRY AGAIN!!!'),
+                                    actions: [
+                                      TextButton(
+                                        onPressed: () =>
+                                            Navigator.pop(alertDialogContext),
+                                        child: Text('Ok'),
+                                      ),
+                                    ],
+                                  );
+                                },
+                              );
+                            },
+                            text: FFLocalizations.of(context).getText(
+                              '4ci8ere0' /* MSKZYRWL */,
+                            ),
+                            options: FFButtonOptions(
+                              height: 41.24,
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  16.0, 0.0, 16.0, 0.0),
+                              iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 0.0),
+                              color: FlutterFlowTheme.of(context).primary,
+                              textStyle: FlutterFlowTheme.of(context)
+                                  .titleSmall
+                                  .override(
+                                    font: GoogleFonts.figtree(
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .titleSmall
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .titleSmall
+                                          .fontStyle,
+                                    ),
+                                    color: Colors.white,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FlutterFlowTheme.of(context)
+                                        .titleSmall
+                                        .fontWeight,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .titleSmall
+                                        .fontStyle,
+                                  ),
+                              elevation: 0.0,
+                              borderRadius: BorderRadius.circular(24.0),
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
+                ),
                 Align(
                   alignment: AlignmentDirectional(0.83, -0.93),
                   child: InkWell(

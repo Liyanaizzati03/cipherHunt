@@ -1,4 +1,5 @@
 import '/auth/firebase_auth/auth_util.dart';
+import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -511,6 +512,8 @@ class _CreateAccount3WidgetState extends State<CreateAccount3Widget>
                                                       .bodyLarge
                                                       .fontStyle,
                                             ),
+                                        keyboardType:
+                                            TextInputType.visiblePassword,
                                         validator: _model
                                             .passwordTextControllerValidator
                                             .asValidator(context),
@@ -526,9 +529,23 @@ class _CreateAccount3WidgetState extends State<CreateAccount3Widget>
                                             'CREATE_ACCOUNT3_CREATE_ACCOUNT_BTN_ON_TA');
                                         logFirebaseEvent('Button_auth');
                                         GoRouter.of(context).prepareAuthEvent();
+                                        if (_model
+                                                .passwordTextController.text !=
+                                            _model
+                                                .passwordTextController.text) {
+                                          ScaffoldMessenger.of(context)
+                                              .showSnackBar(
+                                            SnackBar(
+                                              content: Text(
+                                                'Passwords don\'t match!',
+                                              ),
+                                            ),
+                                          );
+                                          return;
+                                        }
 
-                                        final user =
-                                            await authManager.signInWithEmail(
+                                        final user = await authManager
+                                            .createAccountWithEmail(
                                           context,
                                           _model
                                               .emailAddressTextController.text,
@@ -537,6 +554,13 @@ class _CreateAccount3WidgetState extends State<CreateAccount3Widget>
                                         if (user == null) {
                                           return;
                                         }
+
+                                        await UsersRecord.collection
+                                            .doc(user.uid)
+                                            .update(createUsersRecordData(
+                                              email: '',
+                                              displayName: '',
+                                            ));
 
                                         logFirebaseEvent('Button_navigate_to');
 

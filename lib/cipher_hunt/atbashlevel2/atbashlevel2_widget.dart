@@ -10,7 +10,6 @@ import 'package:stop_watch_timer/stop_watch_timer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'atbashlevel2_model.dart';
 export 'atbashlevel2_model.dart';
 
@@ -110,8 +109,6 @@ class _Atbashlevel2WidgetState extends State<Atbashlevel2Widget>
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).unfocus();
@@ -120,58 +117,53 @@ class _Atbashlevel2WidgetState extends State<Atbashlevel2Widget>
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: Color(0xFF847FFF),
-        appBar: PreferredSize(
-          preferredSize: Size.fromHeight(50.0),
-          child: AppBar(
-            backgroundColor: FlutterFlowTheme.of(context).primary,
-            automaticallyImplyLeading: false,
-            leading: FlutterFlowIconButton(
-              borderColor: Colors.transparent,
-              borderRadius: 30.0,
-              borderWidth: 1.0,
-              buttonSize: 60.0,
-              icon: Icon(
-                Icons.arrow_back_rounded,
-                color: Colors.white,
-                size: 30.0,
-              ),
-              onPressed: () async {
-                logFirebaseEvent('ATBASHLEVEL2_arrow_back_rounded_ICN_ON_T');
-                logFirebaseEvent('IconButton_navigate_back');
-                context.pop();
-              },
+        appBar: AppBar(
+          backgroundColor: FlutterFlowTheme.of(context).primary,
+          automaticallyImplyLeading: false,
+          leading: FlutterFlowIconButton(
+            borderColor: Colors.transparent,
+            borderRadius: 30.0,
+            borderWidth: 1.0,
+            buttonSize: 60.0,
+            icon: Icon(
+              Icons.arrow_back_rounded,
+              color: Colors.white,
+              size: 30.0,
             ),
-            actions: [],
-            flexibleSpace: FlexibleSpaceBar(
-              title: Text(
-                FFLocalizations.of(context).getText(
-                  '7xcwp68c' /* Atbash Cipher - Level 2 */,
-                ),
-                style: FlutterFlowTheme.of(context).headlineMedium.override(
-                      font: GoogleFonts.lora(
-                        fontWeight: FlutterFlowTheme.of(context)
-                            .headlineMedium
-                            .fontWeight,
-                        fontStyle: FlutterFlowTheme.of(context)
-                            .headlineMedium
-                            .fontStyle,
-                      ),
-                      color: Colors.white,
-                      fontSize: 22.0,
-                      letterSpacing: 0.0,
+            onPressed: () async {
+              logFirebaseEvent('ATBASHLEVEL2_arrow_back_rounded_ICN_ON_T');
+              logFirebaseEvent('IconButton_navigate_back');
+              context.pop();
+            },
+          ),
+          actions: [],
+          flexibleSpace: FlexibleSpaceBar(
+            title: Text(
+              FFLocalizations.of(context).getText(
+                '7xcwp68c' /* Atbash Cipher - Level 2 */,
+              ),
+              style: FlutterFlowTheme.of(context).headlineMedium.override(
+                    font: GoogleFonts.lora(
                       fontWeight: FlutterFlowTheme.of(context)
                           .headlineMedium
                           .fontWeight,
                       fontStyle:
                           FlutterFlowTheme.of(context).headlineMedium.fontStyle,
                     ),
-              ),
-              centerTitle: true,
-              expandedTitleScale: 1.0,
-              titlePadding: EdgeInsets.all(20.0),
+                    color: Colors.white,
+                    fontSize: 22.0,
+                    letterSpacing: 0.0,
+                    fontWeight:
+                        FlutterFlowTheme.of(context).headlineMedium.fontWeight,
+                    fontStyle:
+                        FlutterFlowTheme.of(context).headlineMedium.fontStyle,
+                  ),
             ),
-            elevation: 2.0,
+            centerTitle: true,
+            expandedTitleScale: 1.0,
+            titlePadding: EdgeInsets.all(20.0),
           ),
+          elevation: 2.0,
         ),
         body: SafeArea(
           top: true,
@@ -283,7 +275,7 @@ class _Atbashlevel2WidgetState extends State<Atbashlevel2Widget>
                                               'assets/images/G_(4).jpg',
                                               fit: BoxFit.contain,
                                             ),
-                                            allowRotation: false,
+                                            allowRotation: true,
                                             tag: 'imageTag',
                                             useHeroAnimation: true,
                                           ),
@@ -393,254 +385,252 @@ XS... */
                   ),
                 ),
               ),
-              if (widget.correctOption != null && widget.correctOption != '')
-                Align(
-                  alignment: AlignmentDirectional(0.0, 1.02),
-                  child: Padding(
-                    padding: EdgeInsets.all(10.0),
-                    child: ListView(
-                      padding: EdgeInsets.zero,
-                      shrinkWrap: true,
-                      scrollDirection: Axis.vertical,
-                      children: [
-                        Padding(
-                          padding: EdgeInsets.all(4.0),
-                          child: FFButtonWidget(
-                            onPressed: () async {
-                              logFirebaseEvent(
-                                  'ATBASHLEVEL2_PAGE_AnswerButton_ON_TAP');
-                              logFirebaseEvent('AnswerButton_alert_dialog');
-                              await showDialog(
-                                context: context,
-                                builder: (alertDialogContext) {
-                                  return AlertDialog(
-                                    title: Text('WRONG ANSWER!!!!'),
-                                    content: Text(
-                                        'TRY AGAIN REMEMBER TO LOOK AT TABLE!!!'),
-                                    actions: [
-                                      TextButton(
-                                        onPressed: () =>
-                                            Navigator.pop(alertDialogContext),
-                                        child: Text('Ok'),
-                                      ),
-                                    ],
-                                  );
-                                },
-                              );
-                            },
-                            text: FFLocalizations.of(context).getText(
-                              '57dk72qu' /*  CHECK YOUR MAILS */,
-                            ),
-                            options: FFButtonOptions(
-                              height: 40.0,
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  16.0, 0.0, 16.0, 0.0),
-                              iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 0.0),
-                              color: FlutterFlowTheme.of(context).primary,
-                              textStyle: FlutterFlowTheme.of(context)
-                                  .titleSmall
-                                  .override(
-                                    font: GoogleFonts.figtree(
-                                      fontWeight: FlutterFlowTheme.of(context)
-                                          .titleSmall
-                                          .fontWeight,
-                                      fontStyle: FlutterFlowTheme.of(context)
-                                          .titleSmall
-                                          .fontStyle,
+              Align(
+                alignment: AlignmentDirectional(0.0, 1.02),
+                child: Padding(
+                  padding: EdgeInsets.all(10.0),
+                  child: ListView(
+                    padding: EdgeInsets.zero,
+                    reverse: true,
+                    shrinkWrap: true,
+                    scrollDirection: Axis.vertical,
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.all(4.0),
+                        child: FFButtonWidget(
+                          onPressed: () async {
+                            logFirebaseEvent(
+                                'ATBASHLEVEL2_PAGE_AnswerButton_ON_TAP');
+                            logFirebaseEvent('AnswerButton_alert_dialog');
+                            await showDialog(
+                              context: context,
+                              builder: (alertDialogContext) {
+                                return AlertDialog(
+                                  title: Text('WRONG ANSWER!!!!'),
+                                  content: Text(
+                                      'TRY AGAIN REMEMBER TO LOOK AT TABLE!!!'),
+                                  actions: [
+                                    TextButton(
+                                      onPressed: () =>
+                                          Navigator.pop(alertDialogContext),
+                                      child: Text('Ok'),
                                     ),
-                                    color: Colors.white,
-                                    letterSpacing: 0.0,
-                                    fontWeight: FlutterFlowTheme.of(context)
-                                        .titleSmall
-                                        .fontWeight,
-                                    fontStyle: FlutterFlowTheme.of(context)
-                                        .titleSmall
-                                        .fontStyle,
-                                  ),
-                              elevation: 0.0,
-                              borderRadius: BorderRadius.circular(24.0),
-                            ),
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.all(4.0),
-                          child: FFButtonWidget(
-                            onPressed: () async {
-                              logFirebaseEvent(
-                                  'ATBASHLEVEL2_PAGE_AnswerButton_ON_TAP');
-                              logFirebaseEvent('AnswerButton_alert_dialog');
-                              await showDialog(
-                                context: context,
-                                builder: (alertDialogContext) {
-                                  return AlertDialog(
-                                    title: Text('WRONG ANSWERR!!!'),
-                                    content: Text(
-                                        'TRY AGAIN REMEMBER TO LOOK AT TABLE!!!'),
-                                    actions: [
-                                      TextButton(
-                                        onPressed: () =>
-                                            Navigator.pop(alertDialogContext),
-                                        child: Text('Ok'),
-                                      ),
-                                    ],
-                                  );
-                                },
-                              );
-                            },
-                            text: FFLocalizations.of(context).getText(
-                              'g5a505yh' /* BLOCK YOUR EMAIL */,
-                            ),
-                            options: FFButtonOptions(
-                              height: 40.0,
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  16.0, 0.0, 16.0, 0.0),
-                              iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 0.0),
-                              color: FlutterFlowTheme.of(context).primary,
-                              textStyle: FlutterFlowTheme.of(context)
-                                  .titleSmall
-                                  .override(
-                                    font: GoogleFonts.figtree(
-                                      fontWeight: FlutterFlowTheme.of(context)
-                                          .titleSmall
-                                          .fontWeight,
-                                      fontStyle: FlutterFlowTheme.of(context)
-                                          .titleSmall
-                                          .fontStyle,
-                                    ),
-                                    color: Colors.white,
-                                    letterSpacing: 0.0,
-                                    fontWeight: FlutterFlowTheme.of(context)
-                                        .titleSmall
-                                        .fontWeight,
-                                    fontStyle: FlutterFlowTheme.of(context)
-                                        .titleSmall
-                                        .fontStyle,
-                                  ),
-                              elevation: 0.0,
-                              borderRadius: BorderRadius.circular(24.0),
-                            ),
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.all(6.0),
-                          child: FFButtonWidget(
-                            onPressed: () async {
-                              logFirebaseEvent(
-                                  'ATBASHLEVEL2_PAGE_AnswerButton_ON_TAP');
-                              logFirebaseEvent('AnswerButton_alert_dialog');
-                              await showDialog(
-                                context: context,
-                                builder: (alertDialogContext) {
-                                  return AlertDialog(
-                                    title: Text('WRONG ANSWER!!!'),
-                                    content: Text('CHECK TABLE PROPERLY!!!'),
-                                    actions: [
-                                      TextButton(
-                                        onPressed: () =>
-                                            Navigator.pop(alertDialogContext),
-                                        child: Text('Ok'),
-                                      ),
-                                    ],
-                                  );
-                                },
-                              );
-                            },
-                            text: FFLocalizations.of(context).getText(
-                              'tvv2o2j6' /* CHECK YOUR HOUSE */,
-                            ),
-                            options: FFButtonOptions(
-                              height: 40.0,
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  16.0, 0.0, 16.0, 0.0),
-                              iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 0.0),
-                              color: FlutterFlowTheme.of(context).primary,
-                              textStyle: FlutterFlowTheme.of(context)
-                                  .titleSmall
-                                  .override(
-                                    font: GoogleFonts.figtree(
-                                      fontWeight: FlutterFlowTheme.of(context)
-                                          .titleSmall
-                                          .fontWeight,
-                                      fontStyle: FlutterFlowTheme.of(context)
-                                          .titleSmall
-                                          .fontStyle,
-                                    ),
-                                    color: Colors.white,
-                                    letterSpacing: 0.0,
-                                    fontWeight: FlutterFlowTheme.of(context)
-                                        .titleSmall
-                                        .fontWeight,
-                                    fontStyle: FlutterFlowTheme.of(context)
-                                        .titleSmall
-                                        .fontStyle,
-                                  ),
-                              elevation: 0.0,
-                              borderRadius: BorderRadius.circular(24.0),
-                            ),
-                          ),
-                        ),
-                        if ((FFAppState().correctOption == '1') &&
-                            (FFAppState().curentQuestion == 1))
-                          Padding(
-                            padding: EdgeInsets.all(6.0),
-                            child: FFButtonWidget(
-                              onPressed: () async {
-                                logFirebaseEvent(
-                                    'ATBASHLEVEL2_PAGE_AnswerButton_ON_TAP');
-                                logFirebaseEvent('AnswerButton_navigate_to');
-
-                                context.pushNamed(
-                                  ConfettiWinnerPageab2Widget.routeName,
-                                  queryParameters: {
-                                    'correctOption': serializeParam(
-                                      '',
-                                      ParamType.String,
-                                    ),
-                                  }.withoutNulls,
+                                  ],
                                 );
                               },
-                              text: FFLocalizations.of(context).getText(
-                                'ub35tlx1' /* CHECK YOUR EMAIL */,
-                              ),
-                              options: FFButtonOptions(
-                                height: 41.24,
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    16.0, 0.0, 16.0, 0.0),
-                                iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 0.0, 0.0),
-                                color: FlutterFlowTheme.of(context).primary,
-                                textStyle: FlutterFlowTheme.of(context)
-                                    .titleSmall
-                                    .override(
-                                      font: GoogleFonts.figtree(
-                                        fontWeight: FlutterFlowTheme.of(context)
-                                            .titleSmall
-                                            .fontWeight,
-                                        fontStyle: FlutterFlowTheme.of(context)
-                                            .titleSmall
-                                            .fontStyle,
-                                      ),
-                                      color: Colors.white,
-                                      letterSpacing: 0.0,
-                                      fontWeight: FlutterFlowTheme.of(context)
-                                          .titleSmall
-                                          .fontWeight,
-                                      fontStyle: FlutterFlowTheme.of(context)
-                                          .titleSmall
-                                          .fontStyle,
-                                    ),
-                                elevation: 0.0,
-                                borderRadius: BorderRadius.circular(24.0),
-                              ),
-                            ),
+                            );
+                          },
+                          text: FFLocalizations.of(context).getText(
+                            '57dk72qu' /*  CHECK YOUR MAILS */,
                           ),
-                      ],
-                    ),
+                          options: FFButtonOptions(
+                            height: 40.0,
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                16.0, 0.0, 16.0, 0.0),
+                            iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 0.0),
+                            color: FlutterFlowTheme.of(context).primary,
+                            textStyle: FlutterFlowTheme.of(context)
+                                .titleSmall
+                                .override(
+                                  font: GoogleFonts.figtree(
+                                    fontWeight: FlutterFlowTheme.of(context)
+                                        .titleSmall
+                                        .fontWeight,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .titleSmall
+                                        .fontStyle,
+                                  ),
+                                  color: Colors.white,
+                                  letterSpacing: 0.0,
+                                  fontWeight: FlutterFlowTheme.of(context)
+                                      .titleSmall
+                                      .fontWeight,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .titleSmall
+                                      .fontStyle,
+                                ),
+                            elevation: 0.0,
+                            borderRadius: BorderRadius.circular(24.0),
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.all(4.0),
+                        child: FFButtonWidget(
+                          onPressed: () async {
+                            logFirebaseEvent(
+                                'ATBASHLEVEL2_PAGE_AnswerButton_ON_TAP');
+                            logFirebaseEvent('AnswerButton_alert_dialog');
+                            await showDialog(
+                              context: context,
+                              builder: (alertDialogContext) {
+                                return AlertDialog(
+                                  title: Text('WRONG ANSWERR!!!'),
+                                  content: Text(
+                                      'TRY AGAIN REMEMBER TO LOOK AT TABLE!!!'),
+                                  actions: [
+                                    TextButton(
+                                      onPressed: () =>
+                                          Navigator.pop(alertDialogContext),
+                                      child: Text('Ok'),
+                                    ),
+                                  ],
+                                );
+                              },
+                            );
+                          },
+                          text: FFLocalizations.of(context).getText(
+                            'g5a505yh' /* BLOCK YOUR EMAIL */,
+                          ),
+                          options: FFButtonOptions(
+                            height: 40.0,
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                16.0, 0.0, 16.0, 0.0),
+                            iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 0.0),
+                            color: FlutterFlowTheme.of(context).primary,
+                            textStyle: FlutterFlowTheme.of(context)
+                                .titleSmall
+                                .override(
+                                  font: GoogleFonts.figtree(
+                                    fontWeight: FlutterFlowTheme.of(context)
+                                        .titleSmall
+                                        .fontWeight,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .titleSmall
+                                        .fontStyle,
+                                  ),
+                                  color: Colors.white,
+                                  letterSpacing: 0.0,
+                                  fontWeight: FlutterFlowTheme.of(context)
+                                      .titleSmall
+                                      .fontWeight,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .titleSmall
+                                      .fontStyle,
+                                ),
+                            elevation: 0.0,
+                            borderRadius: BorderRadius.circular(24.0),
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.all(6.0),
+                        child: FFButtonWidget(
+                          onPressed: () async {
+                            logFirebaseEvent(
+                                'ATBASHLEVEL2_PAGE_AnswerButton_ON_TAP');
+                            logFirebaseEvent('AnswerButton_alert_dialog');
+                            await showDialog(
+                              context: context,
+                              builder: (alertDialogContext) {
+                                return AlertDialog(
+                                  title: Text('WRONG ANSWER!!!'),
+                                  content: Text('CHECK TABLE PROPERLY!!!'),
+                                  actions: [
+                                    TextButton(
+                                      onPressed: () =>
+                                          Navigator.pop(alertDialogContext),
+                                      child: Text('Ok'),
+                                    ),
+                                  ],
+                                );
+                              },
+                            );
+                          },
+                          text: FFLocalizations.of(context).getText(
+                            'tvv2o2j6' /* CHECK YOUR HOUSE */,
+                          ),
+                          options: FFButtonOptions(
+                            height: 40.0,
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                16.0, 0.0, 16.0, 0.0),
+                            iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 0.0),
+                            color: FlutterFlowTheme.of(context).primary,
+                            textStyle: FlutterFlowTheme.of(context)
+                                .titleSmall
+                                .override(
+                                  font: GoogleFonts.figtree(
+                                    fontWeight: FlutterFlowTheme.of(context)
+                                        .titleSmall
+                                        .fontWeight,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .titleSmall
+                                        .fontStyle,
+                                  ),
+                                  color: Colors.white,
+                                  letterSpacing: 0.0,
+                                  fontWeight: FlutterFlowTheme.of(context)
+                                      .titleSmall
+                                      .fontWeight,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .titleSmall
+                                      .fontStyle,
+                                ),
+                            elevation: 0.0,
+                            borderRadius: BorderRadius.circular(24.0),
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.all(6.0),
+                        child: FFButtonWidget(
+                          onPressed: () async {
+                            logFirebaseEvent(
+                                'ATBASHLEVEL2_PAGE_AnswerButton_ON_TAP');
+                            logFirebaseEvent('AnswerButton_navigate_to');
+
+                            context.pushNamed(
+                              ConfettiWinnerPageab2Widget.routeName,
+                              queryParameters: {
+                                'correctOption': serializeParam(
+                                  '',
+                                  ParamType.String,
+                                ),
+                              }.withoutNulls,
+                            );
+                          },
+                          text: FFLocalizations.of(context).getText(
+                            'ub35tlx1' /* CHECK YOUR EMAIL */,
+                          ),
+                          options: FFButtonOptions(
+                            height: 41.24,
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                16.0, 0.0, 16.0, 0.0),
+                            iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 0.0),
+                            color: FlutterFlowTheme.of(context).primary,
+                            textStyle: FlutterFlowTheme.of(context)
+                                .titleSmall
+                                .override(
+                                  font: GoogleFonts.figtree(
+                                    fontWeight: FlutterFlowTheme.of(context)
+                                        .titleSmall
+                                        .fontWeight,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .titleSmall
+                                        .fontStyle,
+                                  ),
+                                  color: Colors.white,
+                                  letterSpacing: 0.0,
+                                  fontWeight: FlutterFlowTheme.of(context)
+                                      .titleSmall
+                                      .fontWeight,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .titleSmall
+                                      .fontStyle,
+                                ),
+                            elevation: 0.0,
+                            borderRadius: BorderRadius.circular(24.0),
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
+              ),
               Align(
                 alignment: AlignmentDirectional(0.83, -0.93),
                 child: InkWell(

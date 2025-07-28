@@ -172,36 +172,22 @@ class _VIGENEREcipherlevelWidgetState extends State<VIGENEREcipherlevelWidget> {
                               color: FlutterFlowTheme.of(context).tertiary,
                             ),
                           ),
-                          child: Visibility(
-                            visible: FFAppState().lastAchievedLevel == null,
-                            child: Padding(
-                              padding: EdgeInsets.all(18.0),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  Expanded(
-                                    child: Align(
-                                      alignment: AlignmentDirectional(0.0, 0.0),
-                                      child: Text(
-                                        FFLocalizations.of(context).getText(
-                                          '8vhjuba5' /* LEVEL 1 */,
-                                        ),
-                                        style: FlutterFlowTheme.of(context)
-                                            .displayMedium
-                                            .override(
-                                              font: GoogleFonts.spaceGrotesk(
-                                                fontWeight:
-                                                    FlutterFlowTheme.of(context)
-                                                        .displayMedium
-                                                        .fontWeight,
-                                                fontStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .displayMedium
-                                                        .fontStyle,
-                                              ),
-                                              color: Color(0xFF643CBB),
-                                              fontSize: 25.0,
-                                              letterSpacing: 0.0,
+                          child: Padding(
+                            padding: EdgeInsets.all(18.0),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Expanded(
+                                  child: Align(
+                                    alignment: AlignmentDirectional(0.0, 0.0),
+                                    child: Text(
+                                      FFLocalizations.of(context).getText(
+                                        '8vhjuba5' /* LEVEL 1 */,
+                                      ),
+                                      style: FlutterFlowTheme.of(context)
+                                          .displayMedium
+                                          .override(
+                                            font: GoogleFonts.spaceGrotesk(
                                               fontWeight:
                                                   FlutterFlowTheme.of(context)
                                                       .displayMedium
@@ -211,11 +197,22 @@ class _VIGENEREcipherlevelWidgetState extends State<VIGENEREcipherlevelWidget> {
                                                       .displayMedium
                                                       .fontStyle,
                                             ),
-                                      ),
+                                            color: Color(0xFF643CBB),
+                                            fontSize: 25.0,
+                                            letterSpacing: 0.0,
+                                            fontWeight:
+                                                FlutterFlowTheme.of(context)
+                                                    .displayMedium
+                                                    .fontWeight,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .displayMedium
+                                                    .fontStyle,
+                                          ),
                                     ),
                                   ),
-                                ],
-                              ),
+                                ),
+                              ],
                             ),
                           ),
                         ),

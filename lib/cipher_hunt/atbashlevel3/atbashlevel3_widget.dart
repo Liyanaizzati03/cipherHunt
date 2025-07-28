@@ -117,58 +117,53 @@ class _Atbashlevel3WidgetState extends State<Atbashlevel3Widget>
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: Color(0xFF847FFF),
-        appBar: PreferredSize(
-          preferredSize: Size.fromHeight(50.0),
-          child: AppBar(
-            backgroundColor: FlutterFlowTheme.of(context).primary,
-            automaticallyImplyLeading: false,
-            leading: FlutterFlowIconButton(
-              borderColor: Colors.transparent,
-              borderRadius: 30.0,
-              borderWidth: 1.0,
-              buttonSize: 60.0,
-              icon: Icon(
-                Icons.arrow_back_rounded,
-                color: Colors.white,
-                size: 30.0,
-              ),
-              onPressed: () async {
-                logFirebaseEvent('ATBASHLEVEL3_arrow_back_rounded_ICN_ON_T');
-                logFirebaseEvent('IconButton_navigate_back');
-                context.pop();
-              },
+        appBar: AppBar(
+          backgroundColor: FlutterFlowTheme.of(context).primary,
+          automaticallyImplyLeading: false,
+          leading: FlutterFlowIconButton(
+            borderColor: Colors.transparent,
+            borderRadius: 30.0,
+            borderWidth: 1.0,
+            buttonSize: 60.0,
+            icon: Icon(
+              Icons.arrow_back_rounded,
+              color: Colors.white,
+              size: 30.0,
             ),
-            actions: [],
-            flexibleSpace: FlexibleSpaceBar(
-              title: Text(
-                FFLocalizations.of(context).getText(
-                  'nalu0g0z' /* Atbash Cipher - Level 3 */,
-                ),
-                style: FlutterFlowTheme.of(context).headlineMedium.override(
-                      font: GoogleFonts.lora(
-                        fontWeight: FlutterFlowTheme.of(context)
-                            .headlineMedium
-                            .fontWeight,
-                        fontStyle: FlutterFlowTheme.of(context)
-                            .headlineMedium
-                            .fontStyle,
-                      ),
-                      color: Colors.white,
-                      fontSize: 22.0,
-                      letterSpacing: 0.0,
+            onPressed: () async {
+              logFirebaseEvent('ATBASHLEVEL3_arrow_back_rounded_ICN_ON_T');
+              logFirebaseEvent('IconButton_navigate_back');
+              context.pop();
+            },
+          ),
+          actions: [],
+          flexibleSpace: FlexibleSpaceBar(
+            title: Text(
+              FFLocalizations.of(context).getText(
+                'nalu0g0z' /* Atbash Cipher - Level 3 */,
+              ),
+              style: FlutterFlowTheme.of(context).headlineMedium.override(
+                    font: GoogleFonts.lora(
                       fontWeight: FlutterFlowTheme.of(context)
                           .headlineMedium
                           .fontWeight,
                       fontStyle:
                           FlutterFlowTheme.of(context).headlineMedium.fontStyle,
                     ),
-              ),
-              centerTitle: true,
-              expandedTitleScale: 1.0,
-              titlePadding: EdgeInsets.all(20.0),
+                    color: Colors.white,
+                    fontSize: 22.0,
+                    letterSpacing: 0.0,
+                    fontWeight:
+                        FlutterFlowTheme.of(context).headlineMedium.fontWeight,
+                    fontStyle:
+                        FlutterFlowTheme.of(context).headlineMedium.fontStyle,
+                  ),
             ),
-            elevation: 2.0,
+            centerTitle: true,
+            expandedTitleScale: 1.0,
+            titlePadding: EdgeInsets.all(20.0),
           ),
+          elevation: 2.0,
         ),
         body: SafeArea(
           top: true,
@@ -280,7 +275,7 @@ class _Atbashlevel3WidgetState extends State<Atbashlevel3Widget>
                                               'assets/images/G_(4).jpg',
                                               fit: BoxFit.contain,
                                             ),
-                                            allowRotation: false,
+                                            allowRotation: true,
                                             tag: 'imageTag',
                                             useHeroAnimation: true,
                                           ),
@@ -397,6 +392,7 @@ MEE... */
                     padding: EdgeInsets.all(10.0),
                     child: ListView(
                       padding: EdgeInsets.zero,
+                      reverse: true,
                       shrinkWrap: true,
                       scrollDirection: Axis.vertical,
                       children: [

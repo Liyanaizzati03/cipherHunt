@@ -1,7 +1,7 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/custom_code/actions/index.dart' as actions;
 import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -81,12 +81,22 @@ class _MainMenuWidgetState extends State<MainMenuWidget> {
                         alignment: AlignmentDirectional(0.0, 0.0),
                         child: Padding(
                           padding: EdgeInsets.all(4.0),
-                          child: Text(
-                            'Welcome',
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                                  font: GoogleFonts.roboto(
+                          child: AuthUserStreamWidget(
+                            builder: (context) => Text(
+                              'Welcome${currentUserDisplayName}',
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    font: GoogleFonts.roboto(
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
+                                    ),
+                                    fontSize: 24.0,
+                                    letterSpacing: 0.0,
                                     fontWeight: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .fontWeight,
@@ -94,15 +104,7 @@ class _MainMenuWidgetState extends State<MainMenuWidget> {
                                         .bodyMedium
                                         .fontStyle,
                                   ),
-                                  fontSize: 24.0,
-                                  letterSpacing: 0.0,
-                                  fontWeight: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .fontWeight,
-                                  fontStyle: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .fontStyle,
-                                ),
+                            ),
                           ),
                         ),
                       ),
@@ -351,8 +353,14 @@ class _MainMenuWidgetState extends State<MainMenuWidget> {
                                 onPressed: () async {
                                   logFirebaseEvent(
                                       'MAIN_MENU_PAGE_exitApp_ON_TAP');
-                                  logFirebaseEvent('exitApp_custom_action');
-                                  await actions.exitApp();
+                                  logFirebaseEvent('exitApp_auth');
+                                  GoRouter.of(context).prepareAuthEvent();
+                                  await authManager.signOut();
+                                  GoRouter.of(context).clearRedirectLocation();
+
+                                  context.goNamedAuth(
+                                      CreateAccount3Widget.routeName,
+                                      context.mounted);
                                 },
                                 text: FFLocalizations.of(context).getText(
                                   'auq0j12f' /* EXIT
