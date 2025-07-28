@@ -43,6 +43,8 @@ class _Atbashlevel4WidgetState extends State<Atbashlevel4Widget>
     super.initState();
     _model = createModel(context, () => Atbashlevel4Model());
 
+    logFirebaseEvent('screen_view',
+        parameters: {'screen_name': 'atbashlevel4'});
     animationsMap.addAll({
       'textOnPageLoadAnimation1': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
@@ -131,6 +133,8 @@ class _Atbashlevel4WidgetState extends State<Atbashlevel4Widget>
                 size: 30.0,
               ),
               onPressed: () async {
+                logFirebaseEvent('ATBASHLEVEL4_arrow_back_rounded_ICN_ON_T');
+                logFirebaseEvent('IconButton_navigate_back');
                 context.pop();
               },
             ),
@@ -264,6 +268,9 @@ class _Atbashlevel4WidgetState extends State<Atbashlevel4Widget>
                                     hoverColor: Colors.transparent,
                                     highlightColor: Colors.transparent,
                                     onTap: () async {
+                                      logFirebaseEvent(
+                                          'ATBASHLEVEL4_PAGE_Image_4xojdljt_ON_TAP');
+                                      logFirebaseEvent('Image_expand_image');
                                       await Navigator.push(
                                         context,
                                         PageTransition(
@@ -397,6 +404,9 @@ class _Atbashlevel4WidgetState extends State<Atbashlevel4Widget>
                           padding: EdgeInsets.all(4.0),
                           child: FFButtonWidget(
                             onPressed: () async {
+                              logFirebaseEvent(
+                                  'ATBASHLEVEL4_PAGE_AnswerButton_ON_TAP');
+                              logFirebaseEvent('AnswerButton_alert_dialog');
                               await showDialog(
                                 context: context,
                                 builder: (alertDialogContext) {
@@ -456,6 +466,9 @@ class _Atbashlevel4WidgetState extends State<Atbashlevel4Widget>
                             padding: EdgeInsets.all(4.0),
                             child: FFButtonWidget(
                               onPressed: () async {
+                                logFirebaseEvent(
+                                    'ATBASHLEVEL4_PAGE_AnswerButton_ON_TAP');
+                                logFirebaseEvent('AnswerButton_alert_dialog');
                                 await showDialog(
                                   context: context,
                                   builder: (alertDialogContext) {
@@ -514,6 +527,10 @@ class _Atbashlevel4WidgetState extends State<Atbashlevel4Widget>
                             padding: EdgeInsets.all(6.0),
                             child: FFButtonWidget(
                               onPressed: () async {
+                                logFirebaseEvent(
+                                    'ATBASHLEVEL4_PAGE_AnswerButton_ON_TAP');
+                                logFirebaseEvent('AnswerButton_navigate_to');
+
                                 context.pushNamed(
                                   ConfettiWinnerPageab4Widget.routeName,
                                   queryParameters: {
@@ -570,6 +587,9 @@ class _Atbashlevel4WidgetState extends State<Atbashlevel4Widget>
                           padding: EdgeInsets.all(6.0),
                           child: FFButtonWidget(
                             onPressed: () async {
+                              logFirebaseEvent(
+                                  'ATBASHLEVEL4_PAGE_AnswerButton_ON_TAP');
+                              logFirebaseEvent('AnswerButton_alert_dialog');
                               await showDialog(
                                 context: context,
                                 builder: (alertDialogContext) {
@@ -635,6 +655,8 @@ class _Atbashlevel4WidgetState extends State<Atbashlevel4Widget>
                   hoverColor: Colors.transparent,
                   highlightColor: Colors.transparent,
                   onTap: () async {
+                    logFirebaseEvent('ATBASHLEVEL4_PAGE_Icon_6nlk7lvd_ON_TAP');
+                    logFirebaseEvent('Icon_alert_dialog');
                     await showDialog(
                       context: context,
                       builder: (alertDialogContext) {

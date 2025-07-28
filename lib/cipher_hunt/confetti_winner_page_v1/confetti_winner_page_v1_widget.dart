@@ -41,6 +41,8 @@ class _ConfettiWinnerPageV1WidgetState extends State<ConfettiWinnerPageV1Widget>
     super.initState();
     _model = createModel(context, () => ConfettiWinnerPageV1Model());
 
+    logFirebaseEvent('screen_view',
+        parameters: {'screen_name': 'ConfettiWinnerPageV1'});
     animationsMap.addAll({
       'textOnPageLoadAnimation1': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
@@ -119,6 +121,8 @@ class _ConfettiWinnerPageV1WidgetState extends State<ConfettiWinnerPageV1Widget>
                 size: 30.0,
               ),
               onPressed: () async {
+                logFirebaseEvent('CONFETTI_WINNER_V1_arrow_back_rounded_IC');
+                logFirebaseEvent('IconButton_navigate_back');
                 context.pop();
               },
             ),
@@ -372,6 +376,10 @@ You used a... */
                   children: [
                     FFButtonWidget(
                       onPressed: () async {
+                        logFirebaseEvent(
+                            'CONFETTI_WINNER_V1_REPLAY_LEVEL_BTN_ON_T');
+                        logFirebaseEvent('Button_navigate_to');
+
                         context.pushNamed(
                           Vigenerelevel1Widget.routeName,
                           queryParameters: {
@@ -431,6 +439,10 @@ You used a... */
                     ),
                     FFButtonWidget(
                       onPressed: () async {
+                        logFirebaseEvent(
+                            'CONFETTI_WINNER_V1_MAIN_MENU_BTN_ON_TAP');
+                        logFirebaseEvent('Button_navigate_to');
+
                         context.pushNamed(MainMenuWidget.routeName);
                       },
                       text: FFLocalizations.of(context).getText(
@@ -468,7 +480,11 @@ You used a... */
                     ),
                     FFButtonWidget(
                       onPressed: () async {
+                        logFirebaseEvent(
+                            'CONFETTI_WINNER_V1_NEXT_LEVEL_BTN_ON_TAP');
                         if (FFAppState().correctOption == '2') {
+                          logFirebaseEvent('Button_navigate_to');
+
                           context.pushNamed(
                             Vigenerelevel2Widget.routeName,
                             queryParameters: {
@@ -487,6 +503,8 @@ You used a... */
                             }.withoutNulls,
                           );
                         } else {
+                          logFirebaseEvent('Button_navigate_to');
+
                           context.pushNamed(
                             VIGENEREcipherlevelWidget.routeName,
                             extra: <String, dynamic>{

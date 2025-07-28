@@ -8,6 +8,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'main_menu_model.dart';
 export 'main_menu_model.dart';
 
+/// exitApp button make it exit the app
 class MainMenuWidget extends StatefulWidget {
   const MainMenuWidget({super.key});
 
@@ -28,6 +29,7 @@ class _MainMenuWidgetState extends State<MainMenuWidget> {
     super.initState();
     _model = createModel(context, () => MainMenuModel());
 
+    logFirebaseEvent('screen_view', parameters: {'screen_name': 'MainMenu'});
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
@@ -62,13 +64,15 @@ class _MainMenuWidgetState extends State<MainMenuWidget> {
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Padding(
-                      padding: EdgeInsets.all(24.0),
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(8.0),
-                        child: Image.asset(
-                          'assets/images/ChatGPT_Image_May_11,_2025,_08_39_30_AM.png',
-                          fit: BoxFit.cover,
+                    Expanded(
+                      child: Padding(
+                        padding: EdgeInsets.all(18.0),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(8.0),
+                          child: Image.asset(
+                            'assets/images/ChatGPT_Image_May_11,_2025,_08_39_30_AM.png',
+                            fit: BoxFit.cover,
+                          ),
                         ),
                       ),
                     ),
@@ -144,6 +148,10 @@ class _MainMenuWidgetState extends State<MainMenuWidget> {
                               padding: EdgeInsets.all(6.0),
                               child: FFButtonWidget(
                                 onPressed: () async {
+                                  logFirebaseEvent(
+                                      'MAIN_MENU_PAGE_PLAY_ON_TAP');
+                                  logFirebaseEvent('PLAY_navigate_to');
+
                                   context.pushNamed(
                                     CategoriesPagesWidget.routeName,
                                     extra: <String, dynamic>{
@@ -214,6 +222,10 @@ class _MainMenuWidgetState extends State<MainMenuWidget> {
                               padding: EdgeInsets.all(6.0),
                               child: FFButtonWidget(
                                 onPressed: () async {
+                                  logFirebaseEvent(
+                                      'MAIN_MENU_PAGE_Setting_ON_TAP');
+                                  logFirebaseEvent('Setting_navigate_to');
+
                                   context.pushNamed(
                                     SettingsWidget.routeName,
                                     extra: <String, dynamic>{
@@ -273,6 +285,10 @@ class _MainMenuWidgetState extends State<MainMenuWidget> {
                               padding: EdgeInsets.all(6.0),
                               child: FFButtonWidget(
                                 onPressed: () async {
+                                  logFirebaseEvent(
+                                      'MAIN_MENU_PAGE_INFO_ON_TAP');
+                                  logFirebaseEvent('INFO_navigate_to');
+
                                   context.pushNamed(
                                     InfoWidget.routeName,
                                     extra: <String, dynamic>{
@@ -333,6 +349,9 @@ class _MainMenuWidgetState extends State<MainMenuWidget> {
                               padding: EdgeInsets.all(6.0),
                               child: FFButtonWidget(
                                 onPressed: () async {
+                                  logFirebaseEvent(
+                                      'MAIN_MENU_PAGE_exitApp_ON_TAP');
+                                  logFirebaseEvent('exitApp_custom_action');
                                   await actions.exitApp();
                                 },
                                 text: FFLocalizations.of(context).getText(

@@ -40,6 +40,8 @@ class _ConfettiWinnerPageab5WidgetState
     super.initState();
     _model = createModel(context, () => ConfettiWinnerPageab5Model());
 
+    logFirebaseEvent('screen_view',
+        parameters: {'screen_name': 'ConfettiWinnerPageab5'});
     animationsMap.addAll({
       'textOnPageLoadAnimation1': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
@@ -116,6 +118,8 @@ class _ConfettiWinnerPageab5WidgetState
                 size: 30.0,
               ),
               onPressed: () async {
+                logFirebaseEvent('CONFETTI_WINNER_PAGEAB5_arrow_back_round');
+                logFirebaseEvent('IconButton_navigate_back');
                 context.pop();
               },
             ),
@@ -367,6 +371,10 @@ class _ConfettiWinnerPageab5WidgetState
                   children: [
                     FFButtonWidget(
                       onPressed: () async {
+                        logFirebaseEvent(
+                            'CONFETTI_WINNER_PAGEAB5_REPLAY_LEVEL_BTN');
+                        logFirebaseEvent('Button_navigate_to');
+
                         context.pushNamed(
                           Atbashlevel5Widget.routeName,
                           queryParameters: {
@@ -422,6 +430,10 @@ class _ConfettiWinnerPageab5WidgetState
                     ),
                     FFButtonWidget(
                       onPressed: () async {
+                        logFirebaseEvent(
+                            'CONFETTI_WINNER_PAGEAB5_MAIN_MENU_BTN_ON');
+                        logFirebaseEvent('Button_navigate_to');
+
                         context.pushNamed(MainMenuWidget.routeName);
                       },
                       text: FFLocalizations.of(context).getText(
@@ -459,7 +471,11 @@ class _ConfettiWinnerPageab5WidgetState
                     ),
                     FFButtonWidget(
                       onPressed: () async {
+                        logFirebaseEvent(
+                            'CONFETTI_WINNER_PAGEAB5_NEXT_LEVEL_BTN_O');
                         if (widget.correctOption == '1') {
+                          logFirebaseEvent('Button_navigate_to');
+
                           context.pushNamed(
                             Vigenerelevel1Widget.routeName,
                             queryParameters: {
@@ -478,6 +494,8 @@ class _ConfettiWinnerPageab5WidgetState
                             }.withoutNulls,
                           );
                         } else {
+                          logFirebaseEvent('Button_navigate_to');
+
                           context.pushNamed(
                             AtbashCipherLevelWidget.routeName,
                             extra: <String, dynamic>{

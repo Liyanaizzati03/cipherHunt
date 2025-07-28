@@ -41,6 +41,8 @@ class _ConfettiWinnerPageMC1WidgetState
     super.initState();
     _model = createModel(context, () => ConfettiWinnerPageMC1Model());
 
+    logFirebaseEvent('screen_view',
+        parameters: {'screen_name': 'ConfettiWinnerPageMC1'});
     animationsMap.addAll({
       'textOnPageLoadAnimation1': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
@@ -119,6 +121,8 @@ class _ConfettiWinnerPageMC1WidgetState
                 size: 30.0,
               ),
               onPressed: () async {
+                logFirebaseEvent('CONFETTI_WINNER_M_C1_arrow_back_rounded_');
+                logFirebaseEvent('IconButton_navigate_back');
                 context.pop();
               },
             ),
@@ -372,6 +376,10 @@ Good ... */
                   children: [
                     FFButtonWidget(
                       onPressed: () async {
+                        logFirebaseEvent(
+                            'CONFETTI_WINNER_M_C1_REPLAY_LEVEL_BTN_ON');
+                        logFirebaseEvent('Button_navigate_to');
+
                         context.pushNamed(
                           Morsecode1Widget.routeName,
                           queryParameters: {
@@ -431,6 +439,10 @@ Good ... */
                     ),
                     FFButtonWidget(
                       onPressed: () async {
+                        logFirebaseEvent(
+                            'CONFETTI_WINNER_M_C1_MAIN_MENU_BTN_ON_TA');
+                        logFirebaseEvent('Button_navigate_to');
+
                         context.pushNamed(MainMenuWidget.routeName);
                       },
                       text: FFLocalizations.of(context).getText(
@@ -468,7 +480,11 @@ Good ... */
                     ),
                     FFButtonWidget(
                       onPressed: () async {
+                        logFirebaseEvent(
+                            'CONFETTI_WINNER_M_C1_NEXT_LEVEL_BTN_ON_T');
                         if (FFAppState().correctOption == '2') {
+                          logFirebaseEvent('Button_navigate_to');
+
                           context.pushNamed(
                             Morsecode2Widget.routeName,
                             queryParameters: {
@@ -487,6 +503,8 @@ Good ... */
                             }.withoutNulls,
                           );
                         } else {
+                          logFirebaseEvent('Button_navigate_to');
+
                           context.pushNamed(
                             MsCipherlevelWidget.routeName,
                             extra: <String, dynamic>{

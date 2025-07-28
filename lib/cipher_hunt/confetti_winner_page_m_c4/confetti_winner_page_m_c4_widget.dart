@@ -41,6 +41,8 @@ class _ConfettiWinnerPageMC4WidgetState
     super.initState();
     _model = createModel(context, () => ConfettiWinnerPageMC4Model());
 
+    logFirebaseEvent('screen_view',
+        parameters: {'screen_name': 'ConfettiWinnerPageMC4'});
     animationsMap.addAll({
       'textOnPageLoadAnimation1': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
@@ -119,6 +121,8 @@ class _ConfettiWinnerPageMC4WidgetState
                 size: 30.0,
               ),
               onPressed: () async {
+                logFirebaseEvent('CONFETTI_WINNER_M_C4_arrow_back_rounded_');
+                logFirebaseEvent('IconButton_navigate_back');
                 context.pop();
               },
             ),
@@ -372,6 +376,10 @@ class _ConfettiWinnerPageMC4WidgetState
                   children: [
                     FFButtonWidget(
                       onPressed: () async {
+                        logFirebaseEvent(
+                            'CONFETTI_WINNER_M_C4_REPLAY_LEVEL_BTN_ON');
+                        logFirebaseEvent('Button_navigate_to');
+
                         context.pushNamed(
                           Morsecode4Widget.routeName,
                           queryParameters: {
@@ -431,6 +439,10 @@ class _ConfettiWinnerPageMC4WidgetState
                     ),
                     FFButtonWidget(
                       onPressed: () async {
+                        logFirebaseEvent(
+                            'CONFETTI_WINNER_M_C4_MAIN_MENU_BTN_ON_TA');
+                        logFirebaseEvent('Button_navigate_to');
+
                         context.pushNamed(MainMenuWidget.routeName);
                       },
                       text: FFLocalizations.of(context).getText(
@@ -468,7 +480,11 @@ class _ConfettiWinnerPageMC4WidgetState
                     ),
                     FFButtonWidget(
                       onPressed: () async {
+                        logFirebaseEvent(
+                            'CONFETTI_WINNER_M_C4_NEXT_LEVEL_BTN_ON_T');
                         if (FFAppState().correctOption == '5') {
+                          logFirebaseEvent('Button_navigate_to');
+
                           context.pushNamed(
                             Morsecode4Widget.routeName,
                             queryParameters: {
@@ -487,6 +503,8 @@ class _ConfettiWinnerPageMC4WidgetState
                             }.withoutNulls,
                           );
                         } else {
+                          logFirebaseEvent('Button_navigate_to');
+
                           context.pushNamed(
                             MsCipherlevelWidget.routeName,
                             extra: <String, dynamic>{

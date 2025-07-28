@@ -37,6 +37,7 @@ class _Cclevel3WidgetState extends State<Cclevel3Widget>
     super.initState();
     _model = createModel(context, () => Cclevel3Model());
 
+    logFirebaseEvent('screen_view', parameters: {'screen_name': 'cclevel3'});
     animationsMap.addAll({
       'textOnPageLoadAnimation1': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
@@ -113,6 +114,8 @@ class _Cclevel3WidgetState extends State<Cclevel3Widget>
               size: 30.0,
             ),
             onPressed: () async {
+              logFirebaseEvent('CCLEVEL3_arrow_back_rounded_ICN_ON_TAP');
+              logFirebaseEvent('IconButton_navigate_back');
               context.pop();
             },
           ),
@@ -243,6 +246,10 @@ class _Cclevel3WidgetState extends State<Cclevel3Widget>
                                                       highlightColor:
                                                           Colors.transparent,
                                                       onTap: () async {
+                                                        logFirebaseEvent(
+                                                            'CCLEVEL3_PAGE_Image_kgfdr1z0_ON_TAP');
+                                                        logFirebaseEvent(
+                                                            'Image_expand_image');
                                                         await Navigator.push(
                                                           context,
                                                           PageTransition(
@@ -449,6 +456,10 @@ class _Cclevel3WidgetState extends State<Cclevel3Widget>
                                               padding: EdgeInsets.all(4.0),
                                               child: FFButtonWidget(
                                                 onPressed: () async {
+                                                  logFirebaseEvent(
+                                                      'CCLEVEL3_PAGE_AnswerButton_ON_TAP');
+                                                  logFirebaseEvent(
+                                                      'AnswerButton_alert_dialog');
                                                   await showDialog(
                                                     context: context,
                                                     builder:
@@ -527,6 +538,10 @@ class _Cclevel3WidgetState extends State<Cclevel3Widget>
                                               padding: EdgeInsets.all(4.0),
                                               child: FFButtonWidget(
                                                 onPressed: () async {
+                                                  logFirebaseEvent(
+                                                      'CCLEVEL3_PAGE_Answerbutton_ON_TAP');
+                                                  logFirebaseEvent(
+                                                      'Answerbutton_alert_dialog');
                                                   await showDialog(
                                                     context: context,
                                                     builder:
@@ -606,6 +621,10 @@ class _Cclevel3WidgetState extends State<Cclevel3Widget>
                                               padding: EdgeInsets.all(6.0),
                                               child: FFButtonWidget(
                                                 onPressed: () async {
+                                                  logFirebaseEvent(
+                                                      'CCLEVEL3_PAGE_AnswerButton_ON_TAP');
+                                                  logFirebaseEvent(
+                                                      'AnswerButton_alert_dialog');
                                                   await showDialog(
                                                     context: context,
                                                     builder:
@@ -688,6 +707,11 @@ class _Cclevel3WidgetState extends State<Cclevel3Widget>
                                                 padding: EdgeInsets.all(6.0),
                                                 child: FFButtonWidget(
                                                   onPressed: () async {
+                                                    logFirebaseEvent(
+                                                        'CCLEVEL3_PAGE_AnswerButton_ON_TAP');
+                                                    logFirebaseEvent(
+                                                        'AnswerButton_navigate_to');
+
                                                     context.pushNamed(
                                                       ConfettiWinnerPageCC3Widget
                                                           .routeName,
@@ -770,6 +794,9 @@ class _Cclevel3WidgetState extends State<Cclevel3Widget>
                                       hoverColor: Colors.transparent,
                                       highlightColor: Colors.transparent,
                                       onTap: () async {
+                                        logFirebaseEvent(
+                                            'CCLEVEL3_PAGE_Icon_poqwt5uj_ON_TAP');
+                                        logFirebaseEvent('Icon_alert_dialog');
                                         await showDialog(
                                           context: context,
                                           builder: (alertDialogContext) {

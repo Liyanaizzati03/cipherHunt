@@ -46,6 +46,7 @@ class _Morsecode2WidgetState extends State<Morsecode2Widget>
     super.initState();
     _model = createModel(context, () => Morsecode2Model());
 
+    logFirebaseEvent('screen_view', parameters: {'screen_name': 'morsecode2'});
     animationsMap.addAll({
       'textOnPageLoadAnimation1': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
@@ -122,6 +123,8 @@ class _Morsecode2WidgetState extends State<Morsecode2Widget>
               size: 30.0,
             ),
             onPressed: () async {
+              logFirebaseEvent('MORSECODE2_arrow_back_rounded_ICN_ON_TAP');
+              logFirebaseEvent('IconButton_navigate_back');
               context.pop();
             },
           ),
@@ -227,6 +230,10 @@ class _Morsecode2WidgetState extends State<Morsecode2Widget>
                                         hoverColor: Colors.transparent,
                                         highlightColor: Colors.transparent,
                                         onTap: () async {
+                                          logFirebaseEvent(
+                                              'MORSECODE2_PAGE_Image_vctrev42_ON_TAP');
+                                          logFirebaseEvent(
+                                              'Image_expand_image');
                                           await Navigator.push(
                                             context,
                                             PageTransition(
@@ -404,6 +411,11 @@ class _Morsecode2WidgetState extends State<Morsecode2Widget>
                                   padding: EdgeInsets.all(4.0),
                                   child: FFButtonWidget(
                                     onPressed: () async {
+                                      logFirebaseEvent(
+                                          'MORSECODE2_PAGE_AnswerButton_ON_TAP');
+                                      logFirebaseEvent(
+                                          'AnswerButton_navigate_to');
+
                                       context.pushNamed(
                                         ConfettiWinnerPageMC2Widget.routeName,
                                         queryParameters: {
@@ -466,6 +478,10 @@ class _Morsecode2WidgetState extends State<Morsecode2Widget>
                                 padding: EdgeInsets.all(4.0),
                                 child: FFButtonWidget(
                                   onPressed: () async {
+                                    logFirebaseEvent(
+                                        'MORSECODE2_PAGE_Answerbutton_ON_TAP');
+                                    logFirebaseEvent(
+                                        'Answerbutton_alert_dialog');
                                     await showDialog(
                                       context: context,
                                       builder: (alertDialogContext) {
@@ -526,6 +542,10 @@ class _Morsecode2WidgetState extends State<Morsecode2Widget>
                                 padding: EdgeInsets.all(6.0),
                                 child: FFButtonWidget(
                                   onPressed: () async {
+                                    logFirebaseEvent(
+                                        'MORSECODE2_PAGE_AnswerButton_ON_TAP');
+                                    logFirebaseEvent(
+                                        'AnswerButton_alert_dialog');
                                     await showDialog(
                                       context: context,
                                       builder: (alertDialogContext) {
@@ -586,6 +606,10 @@ class _Morsecode2WidgetState extends State<Morsecode2Widget>
                                 padding: EdgeInsets.all(6.0),
                                 child: FFButtonWidget(
                                   onPressed: () async {
+                                    logFirebaseEvent(
+                                        'MORSECODE2_PAGE_AnswerButton_ON_TAP');
+                                    logFirebaseEvent(
+                                        'AnswerButton_alert_dialog');
                                     await showDialog(
                                       context: context,
                                       builder: (alertDialogContext) {
@@ -654,6 +678,9 @@ class _Morsecode2WidgetState extends State<Morsecode2Widget>
                         hoverColor: Colors.transparent,
                         highlightColor: Colors.transparent,
                         onTap: () async {
+                          logFirebaseEvent(
+                              'MORSECODE2_PAGE_Icon_jrqbmcoj_ON_TAP');
+                          logFirebaseEvent('Icon_alert_dialog');
                           await showDialog(
                             context: context,
                             builder: (alertDialogContext) {

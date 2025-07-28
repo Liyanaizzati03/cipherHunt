@@ -11,6 +11,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'create_account3_model.dart';
 export 'create_account3_model.dart';
 
+/// splash screen navigate to createAccount
 class CreateAccount3Widget extends StatefulWidget {
   const CreateAccount3Widget({super.key});
 
@@ -34,6 +35,8 @@ class _CreateAccount3WidgetState extends State<CreateAccount3Widget>
     super.initState();
     _model = createModel(context, () => CreateAccount3Model());
 
+    logFirebaseEvent('screen_view',
+        parameters: {'screen_name': 'CreateAccount3'});
     _model.emailAddressTextController ??= TextEditingController();
     _model.emailAddressFocusNode ??= FocusNode();
 
@@ -207,6 +210,7 @@ class _CreateAccount3WidgetState extends State<CreateAccount3Widget>
                                                     .displaySmall
                                                     .fontStyle,
                                           ),
+                                          color: Color(0x860A0A0A),
                                           letterSpacing: 0.0,
                                           fontWeight:
                                               FlutterFlowTheme.of(context)
@@ -353,6 +357,9 @@ class _CreateAccount3WidgetState extends State<CreateAccount3Widget>
                                                         .bodyLarge
                                                         .fontStyle,
                                               ),
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryText,
                                               letterSpacing: 0.0,
                                               fontWeight:
                                                   FlutterFlowTheme.of(context)
@@ -491,6 +498,9 @@ class _CreateAccount3WidgetState extends State<CreateAccount3Widget>
                                                         .bodyLarge
                                                         .fontStyle,
                                               ),
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryText,
                                               letterSpacing: 0.0,
                                               fontWeight:
                                                   FlutterFlowTheme.of(context)
@@ -512,6 +522,9 @@ class _CreateAccount3WidgetState extends State<CreateAccount3Widget>
                                         0.0, 0.0, 0.0, 16.0),
                                     child: FFButtonWidget(
                                       onPressed: () async {
+                                        logFirebaseEvent(
+                                            'CREATE_ACCOUNT3_CREATE_ACCOUNT_BTN_ON_TA');
+                                        logFirebaseEvent('Button_auth');
                                         GoRouter.of(context).prepareAuthEvent();
 
                                         final user =
@@ -525,9 +538,19 @@ class _CreateAccount3WidgetState extends State<CreateAccount3Widget>
                                           return;
                                         }
 
-                                        context.goNamedAuth(
-                                            MainMenuWidget.routeName,
-                                            context.mounted);
+                                        logFirebaseEvent('Button_navigate_to');
+
+                                        context.pushNamedAuth(
+                                          MainMenuWidget.routeName,
+                                          context.mounted,
+                                          extra: <String, dynamic>{
+                                            kTransitionInfoKey: TransitionInfo(
+                                              hasTransition: true,
+                                              transitionType:
+                                                  PageTransitionType.fade,
+                                            ),
+                                          },
+                                        );
                                       },
                                       text: FFLocalizations.of(context).getText(
                                         '63sgur11' /* Create Account */,
@@ -614,14 +637,18 @@ class _CreateAccount3WidgetState extends State<CreateAccount3Widget>
                                         0.0, 0.0, 0.0, 16.0),
                                     child: FFButtonWidget(
                                       onPressed: () async {
+                                        logFirebaseEvent(
+                                            'CREATE_ACCOUNT3_CONTINUE_WITH_GOOGLE_BTN');
+                                        logFirebaseEvent('Button_auth');
                                         GoRouter.of(context).prepareAuthEvent();
                                         final user = await authManager
                                             .signInWithGoogle(context);
                                         if (user == null) {
                                           return;
                                         }
+                                        logFirebaseEvent('Button_navigate_to');
 
-                                        context.goNamedAuth(
+                                        context.pushNamedAuth(
                                             MainMenuWidget.routeName,
                                             context.mounted);
                                       },
@@ -689,6 +716,9 @@ class _CreateAccount3WidgetState extends State<CreateAccount3Widget>
                                                   0.0, 0.0, 0.0, 16.0),
                                           child: FFButtonWidget(
                                             onPressed: () async {
+                                              logFirebaseEvent(
+                                                  'CREATE_ACCOUNT3_CONTINUE_WITH_APPLE_BTN_');
+                                              logFirebaseEvent('Button_auth');
                                               GoRouter.of(context)
                                                   .prepareAuthEvent();
                                               final user = await authManager
@@ -696,8 +726,10 @@ class _CreateAccount3WidgetState extends State<CreateAccount3Widget>
                                               if (user == null) {
                                                 return;
                                               }
+                                              logFirebaseEvent(
+                                                  'Button_navigate_to');
 
-                                              context.goNamedAuth(
+                                              context.pushNamedAuth(
                                                   MainMenuWidget.routeName,
                                                   context.mounted);
                                             },

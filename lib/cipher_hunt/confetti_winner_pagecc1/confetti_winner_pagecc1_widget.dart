@@ -40,6 +40,8 @@ class _ConfettiWinnerPagecc1WidgetState
     super.initState();
     _model = createModel(context, () => ConfettiWinnerPagecc1Model());
 
+    logFirebaseEvent('screen_view',
+        parameters: {'screen_name': 'ConfettiWinnerPagecc1'});
     animationsMap.addAll({
       'textOnPageLoadAnimation1': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
@@ -116,6 +118,8 @@ class _ConfettiWinnerPagecc1WidgetState
                 size: 30.0,
               ),
               onPressed: () async {
+                logFirebaseEvent('CONFETTI_WINNER_PAGECC1_arrow_back_round');
+                logFirebaseEvent('IconButton_navigate_back');
                 context.pop();
               },
             ),
@@ -369,6 +373,10 @@ You used a C... */
                   children: [
                     FFButtonWidget(
                       onPressed: () async {
+                        logFirebaseEvent(
+                            'CONFETTI_WINNER_PAGECC1_REPLAY_LEVEL_BTN');
+                        logFirebaseEvent('Button_navigate_to');
+
                         context.pushNamed(
                           Cclevel1Widget.routeName,
                           queryParameters: {
@@ -428,6 +436,10 @@ You used a C... */
                     ),
                     FFButtonWidget(
                       onPressed: () async {
+                        logFirebaseEvent(
+                            'CONFETTI_WINNER_PAGECC1_MAIN_MENU_BTN_ON');
+                        logFirebaseEvent('Button_navigate_to');
+
                         context.pushNamed(MainMenuWidget.routeName);
                       },
                       text: FFLocalizations.of(context).getText(
@@ -465,7 +477,11 @@ You used a C... */
                     ),
                     FFButtonWidget(
                       onPressed: () async {
+                        logFirebaseEvent(
+                            'CONFETTI_WINNER_PAGECC1_NEXT_LEVEL_BTN_O');
                         if (widget.correctOption == '2') {
+                          logFirebaseEvent('Button_navigate_to');
+
                           context.pushNamed(
                             Cclevel2Widget.routeName,
                             queryParameters: {
@@ -476,6 +492,8 @@ You used a C... */
                             }.withoutNulls,
                           );
                         } else {
+                          logFirebaseEvent('Button_navigate_to');
+
                           context.pushNamed(
                             CaesercipherlevelWidget.routeName,
                             extra: <String, dynamic>{

@@ -28,6 +28,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
     super.initState();
     _model = createModel(context, () => SettingsModel());
 
+    logFirebaseEvent('screen_view', parameters: {'screen_name': 'SETTINGS'});
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
@@ -64,6 +65,8 @@ class _SettingsWidgetState extends State<SettingsWidget> {
               size: 30.0,
             ),
             onPressed: () async {
+              logFirebaseEvent('SETTINGS_arrow_back_rounded_ICN_ON_TAP');
+              logFirebaseEvent('IconButton_navigate_back');
               context.pop();
             },
           ),

@@ -40,6 +40,8 @@ class _ConfettiWinnerPageV5WidgetState extends State<ConfettiWinnerPageV5Widget>
     super.initState();
     _model = createModel(context, () => ConfettiWinnerPageV5Model());
 
+    logFirebaseEvent('screen_view',
+        parameters: {'screen_name': 'ConfettiWinnerPageV5'});
     animationsMap.addAll({
       'textOnPageLoadAnimation1': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
@@ -116,6 +118,8 @@ class _ConfettiWinnerPageV5WidgetState extends State<ConfettiWinnerPageV5Widget>
                 size: 30.0,
               ),
               onPressed: () async {
+                logFirebaseEvent('CONFETTI_WINNER_V5_arrow_back_rounded_IC');
+                logFirebaseEvent('IconButton_navigate_back');
                 context.pop();
               },
             ),
@@ -367,6 +371,10 @@ class _ConfettiWinnerPageV5WidgetState extends State<ConfettiWinnerPageV5Widget>
                   children: [
                     FFButtonWidget(
                       onPressed: () async {
+                        logFirebaseEvent(
+                            'CONFETTI_WINNER_V5_REPLAY_LEVEL_BTN_ON_T');
+                        logFirebaseEvent('Button_navigate_to');
+
                         context.pushNamed(
                           Vigenerelevel5Widget.routeName,
                           queryParameters: {
@@ -426,6 +434,10 @@ class _ConfettiWinnerPageV5WidgetState extends State<ConfettiWinnerPageV5Widget>
                     ),
                     FFButtonWidget(
                       onPressed: () async {
+                        logFirebaseEvent(
+                            'CONFETTI_WINNER_V5_MAIN_MENU_BTN_ON_TAP');
+                        logFirebaseEvent('Button_navigate_to');
+
                         context.pushNamed(MainMenuWidget.routeName);
                       },
                       text: FFLocalizations.of(context).getText(
@@ -463,7 +475,11 @@ class _ConfettiWinnerPageV5WidgetState extends State<ConfettiWinnerPageV5Widget>
                     ),
                     FFButtonWidget(
                       onPressed: () async {
+                        logFirebaseEvent(
+                            'CONFETTI_WINNER_V5_NEXT_LEVEL_BTN_ON_TAP');
                         if (widget.correctOption == '1') {
+                          logFirebaseEvent('Button_navigate_to');
+
                           context.pushNamed(
                             Morsecode1Widget.routeName,
                             queryParameters: {
@@ -482,6 +498,8 @@ class _ConfettiWinnerPageV5WidgetState extends State<ConfettiWinnerPageV5Widget>
                             }.withoutNulls,
                           );
                         } else {
+                          logFirebaseEvent('Button_navigate_to');
+
                           context.pushNamed(
                             VIGENEREcipherlevelWidget.routeName,
                             extra: <String, dynamic>{

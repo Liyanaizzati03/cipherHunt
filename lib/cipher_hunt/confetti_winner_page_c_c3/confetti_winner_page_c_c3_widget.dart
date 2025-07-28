@@ -36,6 +36,8 @@ class _ConfettiWinnerPageCC3WidgetState
     super.initState();
     _model = createModel(context, () => ConfettiWinnerPageCC3Model());
 
+    logFirebaseEvent('screen_view',
+        parameters: {'screen_name': 'ConfettiWinnerPageCC3'});
     animationsMap.addAll({
       'textOnPageLoadAnimation1': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
@@ -114,6 +116,8 @@ class _ConfettiWinnerPageCC3WidgetState
                 size: 30.0,
               ),
               onPressed: () async {
+                logFirebaseEvent('CONFETTI_WINNER_C_C3_arrow_back_rounded_');
+                logFirebaseEvent('IconButton_navigate_back');
                 context.pop();
               },
             ),
@@ -367,6 +371,10 @@ You u... */
                   children: [
                     FFButtonWidget(
                       onPressed: () async {
+                        logFirebaseEvent(
+                            'CONFETTI_WINNER_C_C3_REPLAY_LEVEL_BTN_ON');
+                        logFirebaseEvent('Button_navigate_to');
+
                         context.pushNamed(
                           Cclevel3Widget.routeName,
                           extra: <String, dynamic>{
@@ -412,6 +420,10 @@ You u... */
                     ),
                     FFButtonWidget(
                       onPressed: () async {
+                        logFirebaseEvent(
+                            'CONFETTI_WINNER_C_C3_MAIN_MENU_BTN_ON_TA');
+                        logFirebaseEvent('Button_navigate_to');
+
                         context.pushNamed(MainMenuWidget.routeName);
                       },
                       text: FFLocalizations.of(context).getText(
@@ -449,9 +461,15 @@ You u... */
                     ),
                     FFButtonWidget(
                       onPressed: () async {
+                        logFirebaseEvent(
+                            'CONFETTI_WINNER_C_C3_NEXT_LEVEL_BTN_ON_T');
                         if (FFAppState().correctOption == '2') {
+                          logFirebaseEvent('Button_navigate_to');
+
                           context.pushNamed(Cclevel4Widget.routeName);
                         } else {
+                          logFirebaseEvent('Button_navigate_to');
+
                           context.pushNamed(
                             AtbashCipherLevelWidget.routeName,
                             extra: <String, dynamic>{

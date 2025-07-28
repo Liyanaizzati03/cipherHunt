@@ -78,4 +78,5 @@ export '/cipher_hunt/confetti_winner_page_m_c5/confetti_winner_page_m_c5_widget.
     show ConfettiWinnerPageMC5Widget;
 export '/cipher_hunt/ms_cipherlevel/ms_cipherlevel_widget.dart'
     show MsCipherlevelWidget;
-export '/create_account3/create_account3_widget.dart' show CreateAccount3Widget;
+export '/cipher_hunt/create_account3/create_account3_widget.dart'
+    show CreateAccount3Widget;

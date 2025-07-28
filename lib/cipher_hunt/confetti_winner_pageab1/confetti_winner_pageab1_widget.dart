@@ -40,6 +40,8 @@ class _ConfettiWinnerPageab1WidgetState
     super.initState();
     _model = createModel(context, () => ConfettiWinnerPageab1Model());
 
+    logFirebaseEvent('screen_view',
+        parameters: {'screen_name': 'ConfettiWinnerPageab1'});
     animationsMap.addAll({
       'textOnPageLoadAnimation1': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
@@ -116,6 +118,8 @@ class _ConfettiWinnerPageab1WidgetState
                 size: 30.0,
               ),
               onPressed: () async {
+                logFirebaseEvent('CONFETTI_WINNER_PAGEAB1_arrow_back_round');
+                logFirebaseEvent('IconButton_navigate_back');
                 context.pop();
               },
             ),
@@ -369,6 +373,10 @@ You used a Atbas... */
                   children: [
                     FFButtonWidget(
                       onPressed: () async {
+                        logFirebaseEvent(
+                            'CONFETTI_WINNER_PAGEAB1_REPLAY_LEVEL_BTN');
+                        logFirebaseEvent('Button_navigate_to');
+
                         context.pushNamed(
                           Atbashlevel1Widget.routeName,
                           queryParameters: {
@@ -424,6 +432,10 @@ You used a Atbas... */
                     ),
                     FFButtonWidget(
                       onPressed: () async {
+                        logFirebaseEvent(
+                            'CONFETTI_WINNER_PAGEAB1_MAIN_MENU_BTN_ON');
+                        logFirebaseEvent('Button_navigate_to');
+
                         context.pushNamed(MainMenuWidget.routeName);
                       },
                       text: FFLocalizations.of(context).getText(
@@ -461,7 +473,11 @@ You used a Atbas... */
                     ),
                     FFButtonWidget(
                       onPressed: () async {
+                        logFirebaseEvent(
+                            'CONFETTI_WINNER_PAGEAB1_NEXT_LEVEL_BTN_O');
                         if (widget.correctOption == '2') {
+                          logFirebaseEvent('Button_navigate_to');
+
                           context.pushNamed(
                             Atbashlevel2Widget.routeName,
                             queryParameters: {
@@ -476,6 +492,8 @@ You used a Atbas... */
                             }.withoutNulls,
                           );
                         } else {
+                          logFirebaseEvent('Button_navigate_to');
+
                           context.pushNamed(
                             AtbashCipherLevelWidget.routeName,
                             extra: <String, dynamic>{
